@@ -1,0 +1,98 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb, pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{enumitem}
+\usepackage{fullpage}
+
+\newcommand{\sol}{\textbf{\textit{Solution: }}}
+\newcommand{\solnum}[1]{\textbf{\textit{Solution #1: }}}
+
+\pagestyle{empty}
+
+\begin{document}
+
+\begin{center} \large
+    \textbf{Stellenbosch Camp December 2024}
+    
+    \textbf{Intermediate Section Test 5 Solutions}
+    
+    \textbf{Time: \(4\) hours}
+\end{center}
+
+\begin{enumerate}[topsep=2\bigskipamount,itemsep=\bigskipamount]
+\item \textit{Aidan places an integer in each square of an 8-by-8 chessboard oriented with a black square in the top left corner. He numbers the columns $1,2,\ldots,8$ going left to right and the rows $1,2,\ldots,8$ from top to bottom. He notices that the sum of the numbers in the white squares is 23 and the sum of the numbers in the squares in the odd-numbered columns is 40. At that moment, the Naughty Juku swaps the sign of each number on a white square and blindfolds Aidan. Can Aidan now determine the sum of the numbers in the squares in the odd-numbered rows?}
+
+\sol
+
+Let the sum of the numbers in the white squares of odd columns (respectively, even columns) be $w_o$ (respectively, $w_e$), and let the sum of the numbers in the black squares of odd columns be $b$. We know that $b + w_o = 40$ and $w_o + w_e = 23$. The set of black squares in odd columns is the same as the set of black squares in odd rows, and the set of white squares in even columns is the same as the set of white squares in odd rows. Thus we seek $b - w_e$. We get $b - w_e = (b + w_o) - (w_o + w_e) = 40 - 23 = 17$. $\hfill\blacksquare$
+
+\item % Stellenbosch Camp 2005
+Suppose that for some $p, q, r, s \in \mathbb{R}$, the roots of the polynomial $x^{4} + px^{3} + qx^{2} + rx + s$ are all positive real numbers. Prove $pr \geqslant 16s$.
+
+\sol
+
+Let $P$ be the polynomial $x^{4} + px^{3} + qx^{2} + rx + s$ and let $P$ have roots $r_{1}, r_{2}, r_{3}, r_{4}$. Then $P(x) = (x - r_{1})(x -r_{2})(x-r_{3})(x-r_{4})$, so $p = -(r_{1} + r_{2}+r_{3}+r_{4})$ and $r = -(r_{1}r_{2}r_{3} + r_{1}r_{2}r_{4}+r_{1}r_{3}r_{4}+r_{2}r_{3}r_{4})$ and $s = r_{1}r_{2}r_{3}r_{4}$. Notice that by AM-GM:
+\begin{align*}
+    \frac{r_{1} + r_{2}+r_{3}+r_{4}}{4} & \geqslant \sqrt[^4]{r_{1}r_{2}r_{3}r_{4}}, \\
+    \frac{r_{1}r_{2}r_{3} + r_{1}r_{2}r_{4}+r_{1}r_{3}r_{4}+r_{2}r_{3}r_{4}}{4} & \geqslant \sqrt[^4]{r_{1}^{3}r_{2}^{3}r_{3}^{3}r_{4}^{3}} =  (\sqrt[^4]{r_{1}r_{2}r_{3}r_{4}})^{3}
+\end{align*}
+Thus $pr = (r_{1} + r_{2}+r_{3}+r_{4})(r_{1}r_{2}r_{3} + r_{1}r_{2}r_{4}+r_{1}r_{3}r_{4}+r_{2}r_{3}r_{4}) \geqslant 16r_{1}r_{2}r_{3}r_{4} = 16s$. $\hfill\blacksquare$
+\item %India Regional MO
+\textit{Let $ABC$ be a triangle and $D$ be the midpoint of $BC$. Suppose that the angle bisector of $\angle{ADC}$ is tangent to the circumcircle of triangle $ABD$ at $D$. Prove $\angle{BAC} = 90^{\circ}$.}
+
+\sol
+
+Let the angle bisector of $\angle ADC$ intersect $AC$ at $E$. By the tan-chord theorem, $\angle ABD=\angle EDA = \angle EDC$, so $DE\parallel AB$. By alternate angles, we get $\angle EDA=\angle DAB$, so $\triangle ADB$ is isosceles and $DA=DB=DC$ (because $D$ is the midpoint of $BC$). Therefore, $D$ is the centre of a circle passing through $A,B,C$, but $BC$ is the diameter of this circle, so by the theorem of Thales, $\angle BAC=90^{\circ}$. $\hfill\blacksquare$
+
+\item \textit{Kerry has 2024 chests in her Minecraft world.
+Of the 2024 chests, 1012 are trapped chests that will trigger TNT to blow up the entire room, and the other 1012 contain diamonds and netherite ingots.
+Kerry knows which chests are trapped and which contain the loot.
+You want to get the loot without blowing up.
+To this end, you are allowed to ask Kerry as many questions of the following form as you want.
+In each single question, you select three of the chests, and Kerry then replies by choosing two of these chests and stating how many of those two are trapped.
+Can you figure out which 1012 chests have the loot?}
+
+\sol
+
+It is not always possible to figure out exactly which chests are which. To prove this we present a strategy for Kerry that keeps the status of two of the chests ambiguous regardless of how you choose the chests in the questions. Before you start asking questions, Kerry chooses one trapped chest $T$ and one loot chest $L$ and denotes them as special in her mind. Whenever a question is asked, Kerry adopts the following protocol:
+\begin{itemize}
+    \item If both $T$ and $L$ are among the three chests, Kerry chooses both $T$ and $L$ and truthfully states that there is one trapped chest among $T$ and $L$.
+    \item If exactly one of $T$ or $L$ are among the three, Kerry does not choose this chest and answers on the other (non-$T$-or-$L$) chests.
+    \item If neither $T$, nor $L$ is among the three selected chests, Kerry does not care how the question is answered and answers randomly.
+\end{itemize} Using this protocol, it is not possible to distinguish between $T$ and $L$, since the only information it is possible to get on them is that one of them is trapped and one is not, but it is not possible to determine which is which. $\hfill\blacksquare$
+
+\item \textit{I have $10^{100}+3$ Discord friends and $10^{20000}$ Discord Nitro vouchers.
+I give each of my friends
+\[\left\lfloor\frac{10^{20000}}{10^{100} + 3}\right\rfloor\]
+of the vouchers, and I keep the remaining vouchers to myself.
+What is the units (i.e.~rightmost) digit of the number of vouchers that each one of my friends received?}
+
+\sol
+
+Set $g = 10^{100}$.
+\begin{align*}
+\left\lfloor\frac{10^{20000}}{10^{100} + 3}\right\rfloor & = \left\lfloor\frac{g^{200}}{g + 3}\right\rfloor\\ 
+& = \left\lfloor\frac{g^{200} - 3^{200} + 3^{200}}{g + 3}\right\rfloor\\
+& = \left\lfloor g^{199} - 3g^{198} + 9g^{197} - \cdots + (-3)^{198}g + (-3)^{199} + \frac{3^{200}}{g + 3}\right\rfloor{}. 
+\end{align*}
+
+As $g$ is a multiple of $10$ the first several terms are irrelevant, and $3^{200}/(g + 3) < (9/10)^{100}$ is small and positive, so the answer is $\lfloor(-3)^{199}\rfloor \bmod 10$, which turns out to be $3$. $\hfill\blacksquare$
+
+\item \textit{Find all solutions to $a^{a+b} = b^{b-a}$ where $a$ and $b$ are positive integers.}
+
+\sol
+
+Suppose some positive integers $a$ and $b$ satisfy $a^{a+b} = b^{b-a}$. Since $a^{a+b}$ is a positive integer, so is $b^{b-a}$, so $b \geqslant a$.
+
+If $a = b$ then $b^{b-a} = 1$, so $a^{a+b} = 1$, so $a = 1$, so $(a, b) = (1, 1)$; this gives a solution.
+
+Suppose $b > a$. For each prime $p$, we have $p \mid a$ if and only if $p \mid b$, in which case the exponent of $p$ in the prime factorisation of $a$ is less than the exponent of $p$ in the prime factorisation of $b$ (since $a+b > b-a$). Therefore, $a \mid b$, so $b = ka$ for some positive integer $k$. Substituting this into the given equation yields $a^{(k + 1)a} = k^{(k - 1)a}a^{(k - 1)a}$, so $a^{2} = k^{k-1}$. We now divide into cases depending on whether $k$ is odd or even.
+\begin{itemize}
+\item If $k$ is odd, then $a = k^{(k-1)/2}$, so $(a, b) = (k^{(k - 1)/2}, k^{(k + 1)/2})$. This gives a solution for every odd positive integer $k$, since it yields
+$$a^{a + b} = (k^{(k - 1)/2})^{k^{(k - 1)/2}(k + 1)} = (k^{(k + 1)/2})^{k^{(k - 1)/2}(k - 1)} = b^{b - a}.$$
+\item If $k$ is even, then the fact that $k^{k-1}$ is a square yields that $k$ is a square, so $k = t^{2}$ for some even positive integer $t$, and we obtain $a^{2} = t^{2(t^{2} - 1)}$, so $a = t^{t^{2} - 1}$, so $(a, b) = (t^{t^{2} - 1}, t^{t^{2} + 1})$. This gives a solution for every even positive integer $t$, since it yields
+$$a^{a + b} = (t^{t^{2} - 1})^{t^{t^{2} - 1}(t^{2} + 1)} = (t^{t^{2} + 1})^{t^{t^{2} - 1}(t^{2} - 1)} = b^{b - a}.$$
+\end{itemize}
+Therefore, the solutions are: $(a, b) = (k^{(k - 1)/2}, k^{(k + 1)/2})$ for $k$ any odd positive integer, and $(a, b) = (t^{t^{2} - 1}, t^{t^{2} + 1})$ for $t$ any even positive integer. $\hfill\blacksquare$
+\end{enumerate}
+\end{document}

@@ -1,0 +1,85 @@
+\documentclass[12pt]{article}
+\usepackage{mathtools,amssymb,graphicx}
+\usepackage{fullpage}
+\usepackage{parskip}
+\usepackage{enumitem}
+\usepackage{hyperref}
+
+\pagestyle{empty}
+
+\begin{document}
+\begin{center} \bfseries \large
+    January Monthly Problem Set
+
+    Due date: 17 January 2025
+\end{center}
+
+\bigskip
+Submit your monthly problem sets here: \url{https://forms.gle/pZH93Fq95UuABT277}.
+You can ask the coaches from the Stellenbosch Camp for hints, but do not ask other people for help or look for help online.
+
+\begin{enumerate}[topsep=\bigskipamount,itemsep=\bigskipamount]
+% G
+\item % Stellenbosch Camp 2005
+Let $\triangle{ABC}$ be right-angled at $C$ with $BC= CA$, and $D$ be a point on the line $BC$ beyond $C$ such that $CD < BC$.
+Furthermore, let $E$ be on the segment $AC$ such that $CE=CD$ and let $P, Q, R, S$ be the midpoints of $AB, BD, DE, EA$ respectively.
+Prove that $PQRS$ is a square.
+
+% AC
+\item Find the number of tuples $(x_1, x_2, \dots, x_{50})$ of real numbers such that $x_1 = 2$, $x_2 = 3$, and for all $i\in \{1,2,\dots,50\}$, we have
+$$(x_i+x_{i+1})^2 = (x_{i+1} + x_{i+2})^2,$$
+where $x_{51} = x_{1}$ and $x_{52} = x_{2}$.
+
+% A
+\item Let \(r\), \(s\), and \(t\) be positive real numbers. Show that
+\[r^{2} + s^{2} + t^{2} + 2rst + 1 \geqslant 2(rs + st + tr).\]
+
+% CG 
+% Does not seem free ChatGPT-able nor googlable
+\item 
+How many ways are there to divide a regular pentagon into 5 triangles of equal area?
+
+% A
+\item Let $f: \mathbb{N}_0 \rightarrow \mathbb{R}$ be a function with $f(0) = 0$ such that for all $n \in \mathbb{N}_0$ we have
+$$n \leqslant f(n) + f(n+1) \leqslant 2n.$$
+\begin{enumerate}[itemsep=0pt]
+    \item Show that for all $n \geqslant 2$, we have
+    $$|f(2n)| + |f(2n+1)| \leqslant 2n^2.$$
+    \item Find all such $f$ such that, for all $n \in \mathbb{N}_{0}$, we have $$|f(2n)| + |f(2n+1)| = 2n^2.$$
+\end{enumerate}
+
+
+% G
+\item %Kazakhstan MO, 2008%
+Inside a convex quadrilateral $ABCD$, let $P$ be a point such that $\angle APB=\angle ADP+\angle BCP$ and $\angle APD=\angle ABP+\angle DCP$.
+Prove that $$AP\cdot CP+BP\cdot DP \geqslant \sqrt{AB\cdot BC\cdot CD\cdot DA}.$$
+
+%C
+%Does not seem free ChatGPT-able nor googlable
+%You and six of your mathematician friends
+\item
+Jon Kariv is playing a game with six friends.
+Each of the seven people has a coloured sticky note placed on their back.
+Each of them can see the sticky note on everyone else but cannot see their own.
+There were two more sticky notes but they were hidden and no one was told their colours.
+In total there were three red, three yellow, and three green sticky notes, and everyone knows this.
+Jon's friends state the following statements one after another.
+\begin{itemize}
+\item First: ``I don't know the colour of my sticky note.''
+\item Second: ``I also don't know my sticky note's colour.''
+\item Third: ``I also don't know my sticky note's colour.''
+\item Fourth: ``I have deduced that mine is red.''
+\item Fifth: ``I have yet to deduce what the colour of mine is.''
+\item Sixth: ``I have deduced that my sticky note is yellow.''
+\end{itemize}
+None of them are colour blind and are all perfectly logical.
+Can you determine what colour Jon's sticky note is?
+
+% N
+\item % Vietnam MO 1992
+Let $n$ be a positive integer.
+Let $f(n)$ be the number of divisors of $n$ that end with the digit 1 or 9, and let $g(n)$ be the number of divisors of $n$ that end with the digit 3 or 7.
+Prove that $f(n) \geqslant g(n)$.
+
+\end{enumerate}
+\end{document}

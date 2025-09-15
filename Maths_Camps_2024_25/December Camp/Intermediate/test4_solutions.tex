@@ -1,0 +1,97 @@
+\documentclass[12pt]{article}
+\usepackage{mathtools,amssymb,amsthm}
+\usepackage{pgfplots,fullpage}
+\pgfplotsset{compat=1.15}
+\usepackage{enumitem}
+% \newcommand{\sol}{\textbf{Solution.}}
+\newcommand{\sol}{\textbf{\textit{Solution: }}}
+
+\begin{document}
+\begin{center} \large
+\textbf{Stellenbosch Camp December 2024}
+
+\textbf{Intermediate Section Test 4 Solutions}
+
+\textbf{Time: \(2 \frac{1}{2}\) hours}
+\end{center}
+
+\begin{enumerate}[topsep=2\bigskipamount,itemsep=\bigskipamount]
+\item \textit{Can $3^{2025}$ be written as the sum of two squares?}
+
+\sol
+
+No. We have $3^{2025} \equiv (3)(3^2)^{1012} \equiv (3)(1)^{1012} \equiv 3 \pmod 4$. However, every integer $x$ satisfies $x^2 \equiv 0 \pmod 4$ or $x^2 \equiv 1 \pmod 4$, so for all integers $x$ and $y$, the number $x^2 + y^2$ is congruent to 0, 1, or 2 modulo 4, so $x^2 + y^2 \not\equiv 3 \pmod 4$. $\hfill\blacksquare$
+
+\item \textit{Let $x_1,x_2,\dots,x_9$ be positive real numbers such that
+$$x_1^2+x_2^2+\dots + x_9^2\geqslant 25.$$
+Show that there exist three distinct indices $i$, $j$, and $k$ such that $1 \leqslant i,j,k \leqslant 9$ and $x_i+x_j+x_k \geqslant 5$.}
+
+\sol
+
+Suppose WLOG that $x_{1} \geqslant x_{2} \geqslant \dots \geqslant x_{9}$. We find that
+\[x_{1}^{2} + x_{2}^{2} + x_{3}^{2} + 6x_{3}^{2} \geqslant x_{1}^2+x_{2}^2+\dots + x_{9}^2 \geqslant 25.\]
+It is clear that $2(x_{1}x_{2} + x_{2}x_{3} + x_{3}x_{1}) \geqslant 6x_{3}^2$, since $x_{1} \geqslant x_{2} \geqslant x_{3}$. Therefore,
+\[\begin{aligned}
+(x_{1}+x_{2}+x_{3})^{2} & = x_{1}^{2} + x_{2}^{2} + x_{3}^{2} + 2(x_{1}x_{2} + x_{2}x_{3} + x_{3}x_{1})\\
+& \geqslant x_{1}^{2} + x_{2}^{2} + x_{3}^{2} + 6x_{3}^{2} \geqslant 25,
+\end{aligned}\]
+giving $x_{1} + x_{2} + x_{3} \geqslant 5$, as required. $\hfill\blacksquare$
+
+\item \textit{Let $ABC$ be a triangle and $\Gamma$ the circle with diameter $AB$. The bisectors of $\angle{BAC}$ and $\angle{ABC}$ intersect $\Gamma$ (also) at $D$ and $E$ respectively and intersect each other at $I$. Let the feet of the perpendicular lines from $I$ onto $BC$ and $AC$ be $F$ and $G$ respectively. Prove that $D$, $E$, $F$, and $G$ are collinear.}
+
+\sol
+
+Notice that $\angle{BDA} = \angle{BDI} = 90^{\circ}$ and $\angle{AEB} = \angle{AEI} = 90^{\circ}$ since a diameter subtends a right angle at the circumference. Thus, $\angle{BDI} = \angle{BFI} = 90^{\circ}$ and $\angle{AEI} = \angle{AGI} = 90^{\circ}$, which gives that quadrilaterals $AGEI$ and $BFDI$ are both cyclic. This yields $\angle{IDF} = 180^{\circ} - \angle{IBF}$ and $\angle{IEG}= 180^{\circ} - \angle{IAG}$, since the opposite angles of a cyclic quadrilateral are supplementary. Finally, $\angle{IAG} = \angle{IAB} = \angle{IED}$ and $\angle{IBF} = \angle{IBA} = \angle{IDE}$ by the angles in the same segment property of cyclic quadrilaterals. Therefore, $\angle{IEG} + \angle{IAG} = 180^{\circ}$ and $\angle{IDF} + \angle{IDE} = 180^{\circ}$, which yields the desired result. $\hfill\blacksquare$
+
+\item \textit{There are \(2025\) people at a party. Each two people either know each other or do not know each other. Among each four people at the party, at least one knows the other three. We call a person \emph{esteemed} if that person knows everyone else at the party. What is the smallest possible number of esteemed people at the party?}
+
+\sol
+
+We will show that for $n \geqslant 4$ people, there must be at least $n-3$ esteemed people under the given conditions.
+
+Let $S$ be the set of all people. Assume for a contradiction that there are fewer than $n-3$ esteemed people. Choose a pair of people, $A$ and $B$, that do not know each other. Such a pair must exist (otherwise, everyone knows everyone else and is esteemed, giving a contradiction).
+
+\textit{Lemma:} Every two people in $S \setminus \{A, B\}$ know each other.\\
+\textit{Proof:} Consider any set of 4 people of the form $\{ A,B,C,D \}$. Since $A$ and $B$ do not know each other, either $C$ or $D$ knows the other 3 people. In either case, $C$ and $D$ know each other. $\hfill\square$
+
+Note that $A$ and $B$ are not esteemed since they do not know each other. By assumption there must be at least 2 people $E$ and $F$ in $S \setminus \{A, B\}$ that are not esteemed. But in the set $\{A,B,E,F\}$, since $A$ and $B$ do not know each other, either $E$ or $F$ knows the other 3 people. W.L.O.G.\@ let it be $E$. Then $E$ knows $A$ and $B$, so by our lemma, $E$ must be esteemed. This is a contradiction. Therefore, there must be at least $n-3$ esteemed people.
+
+This bound is achievable as follows. Pick 3 of the $n$ people -- say $A$, $B$, and $C$ -- and specify that each two people know each other except that no two of $A$, $B$, and $C$ know each other. In this situation, each set of 4 people contains some person $X \notin \{A,B,C\}$, who knows all 3 other people in the set.
+
+Therefore, among 2025 people, the smallest possible number of esteemed people is 2022. $\hfill\blacksquare$
+
+\item \textit{Let \(\mathbb{Z}_{> 0} = \{1, 2, 3, \ldots\}\). Let \(f: \mathbb{Z}_{> 0} \rightarrow \mathbb{R}\) be a function such that for each integer \(n \geqslant 2\), there is a prime factor \(p\) of \(n\) such that \(f(n) = f(n/p) - f(p)\). It is given that
+\[f(2^{2023}) + f(3^{2024}) + f(5^{2025}) = 2022.\]
+Find the value of \(f(2023^{2}) + f(2024^{3}) + f(2025^{5})\).}
+
+\sol
+
+Let \(\Omega(1) = 0\), and for each integer \(n \geqslant 2\) with prime factorisation \(n = p_{1}^{a_{1}}p_{2}^{a_{2}}\cdots{}p_{k}^{a_{k}}\) (where the \(p_{i}\) are distinct primes and the \(a_{i}\) are positive integers), let \(\Omega(n) = a_{1} + a_{2} + \cdots{} + a_{k}\). We claim that for all positive integers \(n\), we have
+\[f(n) = \frac{2 - \Omega(n)}{2}f(1).\]
+We prove the claim by induction on \(\Omega(n)\).
+\begin{itemize}
+\item \textit{Base cases:} If \(\Omega(n) = 0\), then \(n = 1\) and
+\[f(1) = \frac{2 - 0}{2}f(1) = \frac{2 - \Omega(1)}{2}f(1).\]
+If \(\Omega(n) = 1\), then \(n\) is prime, so its only prime factor is \(n\), so we have \(f(n) = f(n/n) - f(n) = f(1) - f(n)\), so \(f(n) = (1/2)f(1) = ((2 - \Omega(n))/2)f(1)\).
+\item \textit{Inductive hypothesis:} Suppose that \(k\) is a positive integer such that the claim holds for all positive integers \(n\) such that \(\Omega(n) = k\).
+\item \textit{Inductive step:} Suppose that some integer \(n \geqslant 2\) satisfies \(\Omega(n) = k + 1\). It is given that some prime factor \(p\) of \(n\) satisfies \(f(n) = f(n/p) - f(p)\). Now \(\Omega(n/p) = k\), so by the inductive hypothesis, \(f(n/p) = ((2 - k)/2)f(1)\). By the \(\Omega(n) = 1\) base case, \(f(p) = (1/2)f(1)\). Therefore,
+\[\begin{aligned}
+f(n) & = f\left(\frac{n}{p}\right) - f(p) = \frac{2 - k}{2}f(1) - \frac{1}{2}f(1)\\
+& = \frac{2 - (k + 1)}{2}f(1) = \frac{2 - \Omega(n)}{2}f(1).
+\end{aligned}\]
+This establishes the inductive step.
+\item \textit{Conclusion:} Therefore, the claim holds for all values of \(\Omega(n) \geqslant 0\), and therefore for all integers \(n \geqslant 1\).
+\end{itemize}
+Now
+\[\begin{aligned}
+2022 & = f(2^{2023}) + f(3^{2024}) + f(5^{2025})\\
+& = \left(\frac{2 - 2023}{2} + \frac{2 - 2024}{2} + \frac{2 - 2025}{2}\right)f(1)\\
+& = -3033f(1),
+\end{aligned}\]
+so \(f(1) = -2/3\). Therefore, for all positive integers \(n\), we have
+\[f(n) = \frac{\Omega(n) - 2}{3}.\]
+Now \(2023 = 7 \times 17^{2}\), \(2024 = 2^{3} \times 11 \times 23\), and \(2025 = 3^{4} \times 5^{2}\), so \(\Omega(2023^{2}) = 6\), \(\Omega(2024^{3}) = 15\), and \(\Omega(2025^{5}) = 30\), so
+\[f(2023^{2}) + f(2024^{3}) + f(2025^{5}) = \frac{6 - 2}{3} + \frac{15 - 2}{3} + \frac{30 - 2}{3} = 15.\]
+This completes the solution. $\hfill\blacksquare$
+\end{enumerate}
+\end{document}

@@ -1,0 +1,195 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{fullpage,tikz}
+\usepackage{enumitem}
+% \pgfplotsset{compat=1.15}
+
+\newcommand{\sol}{\textbf{\textit{Solution: }}}
+\newcommand{\solnum}[1]{\textbf{\textit{Solution #1: }}}
+
+\begin{document}
+\begin{center} \large
+\textbf{Stellenbosch Camp December 2024}
+
+\textbf{Advanced Section Test 4}
+
+\textbf{Time: \(2 \frac{1}{2}\) hours}
+\end{center}
+
+\begin{enumerate}
+\item \textit{There are \(2025\) people at a party. Each two people either know each other or do not know each other. Among each four people at the party, at least one knows the other three. We call a person \emph{esteemed} if that person knows everyone else at the party. What is the smallest possible number of esteemed people at the party?}
+
+\sol
+
+We will show that for $n \geqslant 4$ people, there must be at least $n-3$ esteemed people under the given conditions.
+
+Let $S$ be the set of all people. Assume for a contradiction that there are fewer than $n-3$ esteemed people. Choose a pair of people, $A$ and $B$, that do not know each other. Such a pair must exist (otherwise, everyone knows everyone else and is esteemed, giving a contradiction).
+
+\textit{Lemma:} Every two people in $S \setminus \{A, B\}$ know each other.\\
+\textit{Proof:} Consider any set of 4 people of the form $\{ A,B,C,D \}$. Since $A$ and $B$ do not know each other, either $C$ or $D$ knows the other 3 people. In either case, $C$ and $D$ know each other. $\hfill\square$
+
+Note that $A$ and $B$ are not esteemed since they do not know each other. By assumption there must be at least 2 people $E$ and $F$ in $S \setminus \{A, B\}$ that are not esteemed. But in the set $\{A,B,E,F\}$, since $A$ and $B$ do not know each other, either $E$ or $F$ knows the other 3 people. W.L.O.G.\@ let it be $E$. Then $E$ knows $A$ and $B$, so by our lemma, $E$ must be esteemed. This is a contradiction. Therefore, there must be at least $n-3$ esteemed people.
+
+This bound is achievable as follows. Pick 3 of the $n$ people -- say $A$, $B$, and $C$ -- and specify that each two people know each other except that no two of $A$, $B$, and $C$ know each other. In this situation, each set of 4 people contains some person $X \notin \{A,B,C\}$, who knows all 3 other people in the set.
+
+Therefore, among 2025 people, the smallest possible number of esteemed people is 2022. $\hfill\blacksquare$
+
+\item \textit{Let \(\mathbb{Z}_{> 0} = \{1, 2, 3, \ldots\}\). Let \(f: \mathbb{Z}_{> 0} \rightarrow \mathbb{R}\) be a function such that for each integer \(n \geqslant 2\), there is a prime factor \(p\) of \(n\) such that \(f(n) = f(n/p) - f(p)\). It is given that
+\[f(2^{2023}) + f(3^{2024}) + f(5^{2025}) = 2022.\]
+Find the value of \(f(2023^{2}) + f(2024^{3}) + f(2025^{5})\).}
+
+\newpage
+
+\sol
+
+Let \(\Omega(1) = 0\), and for each integer \(n \geqslant 2\) with prime factorisation \(n = p_{1}^{a_{1}}p_{2}^{a_{2}}\cdots{}p_{k}^{a_{k}}\) (where the \(p_{i}\) are distinct primes and the \(a_{i}\) are positive integers), let \(\Omega(n) = a_{1} + a_{2} + \cdots{} + a_{k}\). We claim that for all positive integers \(n\), we have
+\[f(n) = \frac{2 - \Omega(n)}{2}f(1).\]
+We prove the claim by induction on \(\Omega(n)\).
+\begin{itemize}
+\item \textit{Base cases:} If \(\Omega(n) = 0\), then \(n = 1\) and
+\[f(1) = \frac{2 - 0}{2}f(1) = \frac{2 - \Omega(1)}{2}f(1).\]
+If \(\Omega(n) = 1\), then \(n\) is prime, so its only prime factor is \(n\), so we have \(f(n) = f(n/n) - f(n) = f(1) - f(n)\), so \(f(n) = (1/2)f(1) = ((2 - \Omega(n))/2)f(1)\).
+\item \textit{Inductive hypothesis:} Suppose that \(k\) is a positive integer such that the claim holds for all positive integers \(n\) such that \(\Omega(n) = k\).
+\item \textit{Inductive step:} Suppose that some integer \(n \geqslant 2\) satisfies \(\Omega(n) = k + 1\). It is given that some prime factor \(p\) of \(n\) satisfies \(f(n) = f(n/p) - f(p)\). Now \(\Omega(n/p) = k\), so by the inductive hypothesis, \(f(n/p) = ((2 - k)/2)f(1)\). By the \(\Omega(n) = 1\) base case, \(f(p) = (1/2)f(1)\). Therefore,
+\[\begin{aligned}
+f(n) & = f\left(\frac{n}{p}\right) - f(p) = \frac{2 - k}{2}f(1) - \frac{1}{2}f(1)\\
+& = \frac{2 - (k + 1)}{2}f(1) = \frac{2 - \Omega(n)}{2}f(1).
+\end{aligned}\]
+This establishes the inductive step.
+\item \textit{Conclusion:} Therefore, the claim holds for all values of \(\Omega(n) \geqslant 0\), and therefore for all integers \(n \geqslant 1\).
+\end{itemize}
+Now
+\[\begin{aligned}
+2022 & = f(2^{2023}) + f(3^{2024}) + f(5^{2025})\\
+& = \left(\frac{2 - 2023}{2} + \frac{2 - 2024}{2} + \frac{2 - 2025}{2}\right)f(1)\\
+& = -3033f(1),
+\end{aligned}\]
+so \(f(1) = -2/3\). Therefore, for all positive integers \(n\), we have
+\[f(n) = \frac{\Omega(n) - 2}{3}.\]
+Now \(2023 = 7 \times 17^{2}\), \(2024 = 2^{3} \times 11 \times 23\), and \(2025 = 3^{4} \times 5^{2}\), so \(\Omega(2023^{2}) = 6\), \(\Omega(2024^{3}) = 15\), and \(\Omega(2025^{5}) = 30\), so
+\[f(2023^{2}) + f(2024^{3}) + f(2025^{5}) = \frac{6 - 2}{3} + \frac{15 - 2}{3} + \frac{30 - 2}{3} = 15.\]
+This completes the solution. $\hfill\blacksquare$
+
+\item \textit{Find all triples \((a, b, c)\) of positive integers that satisfy \(2^{a}3^{b} = 5^{c} + 1\).}
+
+\sol
+
+If \(a \geqslant 2\), then the given equation modulo 4 is \(0 \equiv 2\) (mod 4), which is false. Therefore, \(a = 1\).
+
+Assume for a contradiction that \(b \geqslant 2\). Modulo 9, the given equation is \(0 \equiv 5^{c} + 1\) (mod 9), which is equivalent to \(c \equiv 3\) (mod 6), so some non-negative integer \(k\) satisfies \(c = 6k + 3\). Now \(5^{3} \equiv -1\) (mod 7), so the given equation modulo 7 is \(2\cdot{}3^{b} \equiv (-1)^{2k + 1} + 1 = 0\) (mod 7), which is impossible (the left side is never congruent to 0 modulo 7, but the right side is congruent to 0 modulo 7).
+
+Therefore, \((a, b, c) = (1, 1, 1)\). This is a solution, so it is the only solution. $\hfill\blacksquare$
+
+\item \textit{Let \(n\) be a positive integer. Consider paths (possibly self-intersecting) on the lattice grid in the \(xy\)-plane that start at \((0, 0)\) and consist of \(n\) steps where each step is a move either one unit up, one unit down, one unit right, or one unit left. Prove that the number of such paths that end on the line \(y = 0\) is \(\binom{2n}{n}\).}
+
+\sol
+
+(Ralf Kistner) For each \(n\)-step path, consider the binary string of length \(2n\) defined as follows: If we break up the string into \(n\) pairs, then the \(i\)th pair is 00, 01, 10, or 11 if the \(i\)th step in the path is down, left, right, or up respectively, for \(i \in \{1, 2, \ldots, n\}\). This clearly gives a bijection between the set of \(n\)-step paths (not necessarily ending on the line \(y = 0\)) and the set of binary strings of length \(2n\).
+
+The expression
+\[\textrm{(number of 1s in the string)} - \textrm{(number of 0s in the string)}\]
+is equal to twice the \(y\) co-ordinate of the ending point of the \(n\)-step path, since each left step (01) and each right step (10) contributes 0 to the expression, each down step (00) contributes \(-2\) to the expression, and each up step (11) contributes 2 to the expression. Therefore, the condition that the path ends on the line \(y = 0\) is equivalent to the condition that the binary string has as many 0s as 1s, that is, the condition that the binary string has exactly \(n\) 0s and exactly \(n\) 1s.
+
+The number of binary strings satisfying that condition is clearly \(\binom{2n}{n}\), so this is the number of paths ending on the line \(y = 0\). $\hfill\blacksquare$
+
+\item \textit{Consider acute-angled $\triangle ABC$ with circumcentre $O$. Let ${\ell}_{A}$ be the perpendicular bisector of $OA$ and let ${\ell}_B, {\ell}_C$ be defined similarly. Let $P_{A}$ be the intersection of $\ell_{A}$ and $CB$ and similarly for $P_{B}$ and $P_{C}$. Assuming they exist, show that $P_{A}, P_{B}, P_{C}$ are collinear.}
+
+\definecolor{qqqqff}{rgb}{0,0,1}
+\definecolor{ffqqqq}{rgb}{1,0,0}
+\definecolor{qqwuqq}{rgb}{0,0.39215686274509803,0}
+\definecolor{uuuuuu}{rgb}{0.26666666666666666,0.26666666666666666,0.26666666666666666}
+\definecolor{uququq}{rgb}{0.25098039215686274,0.25098039215686274,0.25098039215686274}
+\begin{center}
+\begin{tikzpicture}[scale=1.5,line cap=round,line join=round,x=1cm,y=1cm]
+\tikzstyle{every node}=[font=\normalsize]
+% \clip(-3.432682306215863,-2.5704390937463133) rectangle (5.307424847919851,2.988044471089427);
+\draw[line width=2pt,color=qqwuqq,fill=qqwuqq,fill opacity=0.10000000149011612] (0.6491542884309998,-1.008817292300059) -- (0.5266629133906391,-1.119995104111306) -- (0.6378407252018862,-1.2424864791516668) -- (0.760332100242247,-1.1313086673404196) -- cycle; 
+\draw[line width=2pt,color=qqwuqq,fill=qqwuqq,fill opacity=0.10000000149011612] (-1.3886385422290204,-0.8793499796430955) -- (-1.2418446211733976,-0.8030860462306958) -- (-1.3181085545857973,-0.6562921251750728) -- (-1.4649024756414202,-0.7325560585874725) -- cycle; 
+\draw [shift={(-2.5436615111910545,1.3438549212422939)},line width=2pt,color=ffqqqq,fill=ffqqqq,fill opacity=0.1] (0,0) -- (-62.546742798768186:0.23394291097793668) arc (-62.546742798768186:0.20422641052165358:0.23394291097793668) -- cycle;
+\draw [shift={(-0.19867495128284146,-0.074712117174945)},line width=2pt,color=ffqqqq,fill=ffqqqq,fill opacity=0.1] (0,0) -- (27.45325720123181:0.23394291097793668) arc (27.45325720123181:90.20422641052166:0.23394291097793668) -- cycle;
+\draw [shift={(3.5111489687180804,1.3654369200924936)},line width=2pt,color=qqqqff,fill=qqqqff,fill opacity=0.1] (0,0) -- (-179.79577358947836:0.23394291097793668) arc (-179.79577358947836:-137.77192566175842:0.23394291097793668) -- cycle;
+\draw[line width=2pt,color=qqwuqq,fill=qqwuqq,fill opacity=0.10000000149011612] (-0.36918264293692826,1.3516057171739193) -- (-0.36859300795161776,1.1861841492663472) -- (-0.20317144004404564,1.1867737842516577) -- (-0.20376107502935614,1.3521953521592298) -- cycle; 
+\draw [shift={(-0.19867495128284146,-0.074712117174945)},line width=2pt,color=qqqqff,fill=qqqqff,fill opacity=0.1] (0,0) -- (90.20422641052166:0.23394291097793668) arc (90.20422641052166:132.22807433824158:0.23394291097793668) -- cycle;
+\draw[line width=2pt,color=qqwuqq,fill=qqwuqq,fill opacity=0.10000000149011612] (-1.5123250881035424,1.3726163466584043) -- (-1.3898337130631817,1.4837941584696515) -- (-1.501011524874429,1.6062855335100121) -- (-1.6235028999147896,1.495107721698765) -- cycle; 
+\draw[line width=2pt,color=qqwuqq,fill=qqwuqq,fill opacity=0.10000000149011612] (0.884568138779166,0.6744811797782314) -- (0.7377742177235431,0.5982172463658317) -- (0.8140381511359428,0.45142332531020873) -- (0.9608320721915657,0.5276872587226085) -- cycle; 
+\draw [line width=2pt] (-2.73113,-1.3904)-- (-0.19867495128284146,-0.074712117174945);
+\draw [line width=2pt] (-0.19867495128284146,-0.074712117174945)-- (1.719339151767335,-2.1879052175058935);
+\draw [line width=2pt] (-0.19867495128284146,-0.074712117174945)-- (-0.6110629337280199,-2.3760387469512256);
+\draw [line width=2pt] (-0.19867495128284146,-0.074712117174945)-- (-0.20884719877587088,2.7791028214934053);
+\draw [line width=2pt] (-0.19867495128284146,-0.074712117174945) circle (1.4269165338927237cm);
+\draw [line width=2pt,dash pattern=on 3pt off 3pt] (-0.6110629337280199,-2.3760387469512256)-- (-0.20884719877587088,2.7791028214934053);
+\draw [line width=2pt] (-0.19867495128284146,-0.074712117174945)-- (-0.20376107502935614,1.3521953521592298);
+\draw [line width=2pt] (-0.25736395511863724,0.6385414887418044) -- (-0.14507207119356036,0.6389417462424806);
+\draw [line width=2pt] (-0.20376107502935614,1.3521953521592298)-- (-0.20884719877587088,2.7791028214934053);
+\draw [line width=2pt] (-0.26245007886515204,2.0654489580759794) -- (-0.1501581949400751,2.065849215576656);
+\draw [line width=2pt] (-2.73113,-1.3904)-- (-1.4649024756414202,-0.7325560585874725);
+\draw [line width=2pt] (-2.123901075169126,-1.011654520326348) -- (-2.0721314004722933,-1.1113015382611255);
+\draw [line width=2pt] (-1.4649024756414202,-0.7325560585874725)-- (-0.19867495128284146,-0.074712117174945);
+\draw [line width=2pt] (-0.8576735508105474,-0.3538105789138198) -- (-0.8059038761137142,-0.4534575968485973);
+\draw [line width=2pt] (-0.19867495128284146,-0.074712117174945)-- (0.760332100242247,-1.1313086673404196);
+\draw [line width=2pt] (0.3224035258050968,-0.5652753916260596) -- (0.23925362315430937,-0.6407453928893054);
+\draw [line width=2pt] (0.760332100242247,-1.1313086673404196)-- (1.719339151767335,-2.1879052175058935);
+\draw [line width=2pt] (1.2814105773301847,-1.621871941791534) -- (1.1982606746793973,-1.697341943054779);
+\draw [line width=2pt] (-1.6235028999147896,1.495107721698765)-- (-0.19867495128284146,-0.074712117174945);
+\draw [line width=2pt,dash pattern=on 3pt off 3pt] (-1.6235028999147896,1.495107721698765)-- (-0.20884719877587088,2.7791028214934053);
+\draw [line width=2pt] (-0.19867495128284146,-0.074712117174945)-- (0.9608320721915657,0.5276872587226085);
+\draw [line width=2pt,dash pattern=on 3pt off 3pt] (0.9608320721915657,0.5276872587226085)-- (-0.20884719877587088,2.7791028214934053);
+\draw [shift={(3.5111489687180804,1.3654369200924936)},line width=2pt,color=qqqqff] (-179.79577358947836:0.23394291097793668) arc (-179.79577358947836:-137.77192566175842:0.23394291097793668);
+\draw [shift={(3.5111489687180804,1.3654369200924936)},line width=2pt,color=qqqqff] (-179.79577358947836:0.17311775412367314) arc (-179.79577358947836:-137.77192566175842:0.17311775412367314);
+\draw [shift={(-0.19867495128284146,-0.074712117174945)},line width=2pt,color=qqqqff] (90.20422641052166:0.23394291097793668) arc (90.20422641052166:132.22807433824158:0.23394291097793668);
+\draw [shift={(-0.19867495128284146,-0.074712117174945)},line width=2pt,color=qqqqff] (90.20422641052166:0.17311775412367314) arc (90.20422641052166:132.22807433824158:0.17311775412367314);
+\draw [line width=2pt,dash pattern=on 3pt off 3pt] (-2.5436615111910545,1.3438549212422939)-- (1.719339151767335,-2.1879052175058935);
+\draw [line width=2pt,dash pattern=on 3pt off 3pt] (-2.73113,-1.3904)-- (3.5111489687180804,1.3654369200924936);
+\draw [line width=2pt] (-2.73113,-1.3904)-- (1.719339151767335,-2.1879052175058935);
+\draw [line width=2pt] (1.719339151767335,-2.1879052175058935)-- (-0.20884719877587088,2.7791028214934053);
+\draw [line width=2pt] (-0.20884719877587088,2.7791028214934053)-- (-2.73113,-1.3904);
+\draw [line width=2pt] (-2.5436615111910545,1.3438549212422939)-- (-0.6110629337280199,-2.3760387469512256);
+\draw [line width=2pt] (-0.6110629337280199,-2.3760387469512256)-- (3.5111489687180804,1.3654369200924936);
+\draw [line width=2pt] (3.5111489687180804,1.3654369200924936)-- (-2.5436615111910545,1.3438549212422939);
+\begin{scriptsize}
+\draw [fill=uququq] (-0.20884719877587088,2.7791028214934053) circle (1pt);
+\draw[color=uququq] (-0.03583123881622281,2.87107301560046) node {$A$};
+\draw [fill=uququq] (-2.73113,-1.3904) circle (1pt);
+\draw[color=uququq] (-2.9741542006991075,-1.2931107998067868) node {$B$};
+\draw [fill=uququq] (1.719339151767335,-2.1879052175058935) circle (1pt);
+\draw[color=uququq] (1.9480046462766802,-2.0417281149361792) node {$C$};
+\draw [fill=uuuuuu] (-0.19867495128284146,-0.074712117174945) circle (1pt);
+\draw[color=uuuuuu] (-0.34821304569827385,-0.05568493454788521) node {$O$};
+\draw [fill=uququq] (-2.5436615111910545,1.3438549212422939) circle (1pt);
+\draw[color=uququq] (-2.7963575883558756,1.476773266171966) node {$C'$};
+\draw [fill=uuuuuu] (3.5111489687180804,1.3654369200924936) circle (1pt);
+\draw[color=uuuuuu] (3.707255336830764,1.5609927141240227) node {$B'$};
+\draw [fill=uuuuuu] (-0.6110629337280199,-2.3760387469512256) circle (1pt);
+\draw[color=uuuuuu] (-0.6440828073588581,-2.487963623183523) node {$A'$};
+\draw [fill=uuuuuu] (0.760332100242247,-1.1313086673404196) circle (1pt);
+\draw[color=uuuuuu] (0.7502169420696443,-0.862655843607386) node {$D$};
+\draw [fill=uuuuuu] (-1.4649024756414202,-0.7325560585874725) circle (1pt);
+\draw[color=uuuuuu] (-1.4114155553664904,-0.4696317531644548) node {$E$};
+\draw [fill=uuuuuu] (-0.20376107502935614,1.3521953521592298) circle (1pt);
+\draw[color=uuuuuu] (-0.07326210457269268,1.5329195648066705) node {$F$};
+\draw [fill=uuuuuu] (-0.32021011262205307,1.351780276740475) circle (1pt);
+\draw[color=uuuuuu] (-0.45078217994180404,1.50035043056314) node {$A''$};
+\draw [fill=uuuuuu] (0.9608320721915657,0.5276872587226085) circle (1pt);
+\draw[color=uuuuuu] (1.1900296147081653,0.6532942195296341) node {$E'$};
+\draw [fill=uuuuuu] (-1.6235028999147896,1.495107721698765) circle (1pt);
+\draw[color=uuuuuu] (-1.645358466344427,1.7387893264672534) node {$D'$};
+\draw[color=black] (-2.0851711389829477,0.11054666606082447) node {$\ell_B$};
+\draw[color=black] (2.0790126764243246,-0.21697340930828482) node {$\ell_C$};
+\draw[color=black] (1.143241032512578,1.635854445636962) node {$\ell_A$};
+\end{scriptsize}
+\end{tikzpicture}
+\end{center}
+
+\sol
+
+Let $OA \cap \ell_A = \{F\}$, $OB \cap \ell_B = \{E\}$, and $OC \cap \ell_C = \{D\}$. Let $\ell_A \cap \ell_B = \{C'\}$, $\ell_B \cap \ell_C = \{A'\}$, and $\ell_C \cap \ell_A = \{B'\}$. Since $O$ is the circumcentre of $\triangle ABC$, we have $OA=OB=OC$. Since $\ell_A, \ell_B, \ell_C$ are perpendicular bisectors we get $OF=OE=OD$ and $OF\perp B'C'$, $OE\perp A'C'$, $OD\perp B'A'$. This shows that $O$ is the centre of a circle tangent to the sides of $\triangle A'B'C'$ at $D, E, F$, so $O$ is the incentre of $\triangle A'B'C'$.
+
+Let $AA' \cap B'C' = \{A''\}$ and let the feet of the perpendiculars from $A$ onto $OE$ and $OD$ be $E'$ and $D'$ respectively. Since $ODB'F$ is cyclic, we get $\angle AOD'=\angle B'$ and so \(\overline{DD'}=\overline{DO}+\overline{OD'}=r+2r\cos{B'}\). Similarly, \(\overline{EE'}=\overline{EO}+\overline{OE'}=r+2r\cos{C'}\). The lengths $\overline{DD'}$ and $\overline{EE'}$ represent the vertical distance from $A$ to the lines $\ell_C$ and $\ell_B$ respectively. Hence, we can now write
+\[\frac{\sin{\angle A''A'C'}}{\sin{\angle A''A'B'}} = \frac{\sin{\angle AA'C'}}{\sin{\angle AA'B'}} = \frac{\overline{EE'}}{\overline{DD'}} = \frac{r+2r\cos{C'}}{r+2r\cos{B'}} = \frac{1+2\cos{C'}}{1+2\cos{B'}}.\]
+Since similar cyclic results will hold for the lines $BB'$ and $CC'$, we can conclude by Trigonometric Ceva's that the lines $AA'$, $BB'$ and $CC'$ are concurrent.
+
+Hence $\triangle ABC$ and $\triangle A'B'C'$ are in perspective. Since they are perspective from a point, by Desargues' Theorem they are perspective from a line, finishing the problem.$\hfill\blacksquare$
+
+\textit{\textbf{Note:}} There is of course a similar argument using Menelaus (since Menelaus and Ceva are dual theorems) but this one is better because the diagram actually fits on the page.
+\end{enumerate}
+\end{document}

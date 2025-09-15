@@ -1,0 +1,150 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{pgfplots,fullpage}
+\pgfplotsset{compat=1.15}
+\newcommand{\sol}[0]{\textbf{\textit{Solution:\\}}}
+\newcommand{\solnum}[1]{\textbf{\textit{Solution #1:\\}}}
+
+\begin{document}
+\begin{center}
+    \textbf{Stellenbosch Camp December 2024}
+    
+    \textbf{Advanced Section Test 2 Solutions}
+\end{center}
+
+\begin{enumerate}
+\item \textit{A \emph{Collatz sequence} is a sequence \((a_{0}, a_{1}, a_{2}, \ldots)\) of positive integers \(a_{k}\) such that for all non-negative integers \(k\),
+\[a_{k + 1} = \begin{cases}
+\frac{a_{k}}{2} & \textrm{if \(a_{k}\) is even}\\
+3a_{k} + 1 & \textrm{if \(a_{k}\) is odd.}
+\end{cases}\]
+Prove that there are infinitely many positive integers \(N\) such that if \((a_{0}, a_{1}, a_{2}, \ldots)\) is the Collatz sequence such that \(a_{0} = N\), then \(a_{N} = 1\).}
+
+\sol
+Let \(m\) be any positive integer such that \(m \equiv 4\) (mod 6) or \(m \equiv 5\) (mod 6). Let \(N = 2^{m}\).
+
+Let \((a_{0}, a_{1}, \ldots)\) be the Collatz sequence that starts with \(N\). We have \(a_{0} = 2^{m}\), \(a_{1} = 2^{m - 1}\), \(a_{2} = 2^{m - 2}\), \ldots, \(a_{k} = 2^{m - k}\) (for integers \(k\) such that \(0 \leqslant k \leqslant m\)), \ldots, \(a_{m} = 1\), \(a_{m + 1} = 4\), \(a_{m + 2} = 2\), \(a_{m + 3} = 1\). From that point onwards, the sequence repeats in the cycle \((4, 2, 1)\), so \(a_{m + 3r} = 1\) for all non-negative integers \(r\). Therefore, if \(2^{m} - m\) is a non-negative multiple of 3, then \(a_{N} = 1\).
+
+We have \(2^{m} \geqslant m\), since \(2^{m} = (1 + 1)^{m} = (1 + 1)(1 + 1)\cdots{}(1 + 1)\) and when we multiply that out, we obtain \(m\) terms \((1)(1)\cdots(1)\) where exactly one of the $1$s is the second 1 in its bracket.
+\begin{itemize}
+\item If \(m \equiv 4\) (mod 6), then \(2^{m} \equiv 1 \equiv m\) (mod 3).
+\item If \(m \equiv 5\) (mod 6), then \(2^{m} \equiv 2 \equiv m\) (mod 3).
+\end{itemize}
+This completes the proof. $\hfill\blacksquare$
+
+\item \textit{The pupils in a class are arranged in a row so that for each three consecutive pupils, the first pupil's height is between the second and third pupils' heights. The teacher asks every second pupil in the row to step forward, so that two lines of pupils form. Show that both lines are sorted by height.}
+
+\sol
+Let $a_1$, $a_2$, $\dots$, $a_n$ be the students' heights. For every $i\in\{2, \dots, n-1\}$, 
+\begin{align}
+a_i \leqslant a_{i-1} \leqslant a_{i+1} \quad\text{or}\quad a_i \geqslant a_{i-1} \geqslant a_{i+1}.\label{height1}
+\end{align}
+
+Assume for a contradiction that one of the class halves is neither in increasing order nor in decreasing order. There exists a $k$ such that
+$$(a_k < a_{k+2} \quad\text{and}\quad a_{k+2} > a_{k+4}) \quad\text{or}\quad (a_k > a_{k+2} \quad\text{and}\quad a_{k+2} < a_{k+4}).$$
+Subtracting all heights from some large fixed number will switch between these and reverse the inequalities in the proof, so WLOG $a_k < a_{k+2}$ and $a_{k+2} > a_{k+4}$.
+
+Now by assumption $a_k \ngeqslant a_{k+2}$, so by (\ref{height1}),
+$$a_{k+1} \leqslant a_k < a_{k+2}.$$
+Therefore, $a_{k+2} \nleqslant a_{k+1}$, so by (\ref{height1}),
+$$a_{k+2} > a_{k+1} \geqslant a_{k+3}.$$
+Therefore, $a_{k+2} \nleqslant a_{k+3}$, so by (\ref{height1}),
+$$a_{k+3} < a_{k+2} \leqslant a_{k+4}.$$
+But this contradicts our assumption. Therefore, each of the class halves is sorted by height. $\hfill\blacksquare$
+
+%------------------------------------------%
+
+\item \textit{In $\triangle ABC$, $\angle ABC > \angle BCA$. Let $D$ be the point on the side $BC$ such that $\angle DAC = \dfrac{\angle ABC - \angle BCA}{2}$. The circumcircle of $\triangle ACD$ meets side $AB$ again at $E$. The circumcircle of $\triangle ABD$ meets side $AC$ again at $F$. The internal angle bisector of $\angle BDE$ meets the side $AB$ of $P$. The internal angle bisector of $\angle CDF$ meets the side $AC$ at $Q$. Show that $PQ \perp AB$.}
+
+\begin{center}
+\definecolor{uuuuuu}{rgb}{0.26666666666666666,0.26666666666666666,0.26666666666666666}
+\definecolor{uququq}{rgb}{0.25098039215686274,0.25098039215686274,0.25098039215686274}
+\begin{tikzpicture}[line cap=round,line join=round,x=1cm,y=1cm, scale = 0.7]
+    \tikzstyle{every node} = [font=\large]
+    % \clip(-11.147317073170736,-4.833160975609755) rectangle (7.956682926829272,10.91161951219512);
+    \draw[line width=2pt,color=uququq,fill=uququq,fill opacity=0.1] (-6.847375968619398,-1.4428636654389988) -- (-6.806687095005337,-0.9436806550030845) -- (-7.305870105441252,-0.9029917813890238) -- (-7.346558979055312,-1.402174791824938) -- cycle; 
+    \draw [line width=2pt] (-6.7,6.53)-- (-7.52,-3.53);
+    \draw [line width=2pt] (-7.52,-3.53)-- (2.08,-3.43);
+    \draw [line width=2pt] (2.08,-3.43)-- (-6.7,6.53);
+    \draw [line width=2pt,dash pattern=on 1pt off 1pt on 1pt off 4pt] (-6.7,6.53)-- (-2.323284710175778,-3.4758675490643314);
+    \draw [line width=2pt,dash pattern=on 3pt off 3pt] (-0.19319395468648462,3.4160197869329982) circle (7.21355652079481cm);
+    \draw [line width=2pt,dash pattern=on 3pt off 3pt] (-4.971940881942371,1.3257248034982851) circle (5.4836729147921535cm);
+    \draw [line width=2pt] (-7.118404122438327,1.3968957661834553)-- (-2.323284710175778,-3.4758675490643314);
+    \draw [line width=2pt] (-0.025532550679983057,-1.041491548431363)-- (-2.323284710175778,-3.4758675490643314);
+    \draw [line width=2pt] (-7.346558979055312,-1.402174791824938)-- (-2.323284710175778,-3.4758675490643314);
+    \draw [line width=2pt] (-2.323284710175778,-3.4758675490643314)-- (0.8838037638247037,-2.0730393493956774);
+    \draw [line width=2pt] (-7.346558979055312,-1.402174791824938)-- (0.8838037638247037,-2.0730393493956774);
+    \draw [line width=2pt,dash pattern=on 1pt off 1pt on 1pt off 4pt] (-7.52,-3.53)-- (-0.025532550679983057,-1.041491548431363);
+    \begin{scriptsize}
+    \draw [fill=uququq] (-6.7,6.53) circle (2pt);
+    \draw[color=uququq] (-6.921365853658539,6.990351219512194) node {$A$};
+    \draw [fill=uququq] (-7.52,-3.53) circle (1.5pt);
+    \draw[color=uququq] (-7.135219512195125,-3.0201853658536586) node {$B$};
+    \draw [fill=uququq] (2.08,-3.43) circle (2pt);
+    \draw[color=uququq] (2.261463414634147,-2.9729658536585366) node {$C$};
+    \draw [fill=uuuuuu] (-2.323284710175778,-3.4758675490643314) circle (2pt);
+    \draw[color=uuuuuu] (-2.229951219512196,-4.0201853658536586) node {$D$};
+    \draw [fill=uuuuuu] (-7.118404122438327,1.3968957661834553) circle (2pt);
+    \draw[color=uuuuuu] (-6.710243902439027,1.7962048780487803) node {$E$};
+    \draw [fill=uuuuuu] (-0.025532550679983057,-1.041491548431363) circle (2pt);
+    \draw[color=uuuuuu] (0.5601951219512193,-0.5883804878048782) node {$F$};
+    \draw [fill=uuuuuu] (-7.346558979055312,-1.402174791824938) circle (2pt);
+    \draw[color=uuuuuu] (-7.725463414634149,-1.0369658536585364) node {$P$};
+    \draw [fill=uuuuuu] (0.8838037638247037,-2.0730393493956774) circle (2pt);
+    \draw[color=uuuuuu] (1.0809756097560976,-1.6036) node {$Q$};
+    \end{scriptsize}
+\end{tikzpicture}
+\end{center}
+
+\solnum{1} Note that
+\begin{align*}
+    \angle PDQ &= 180^\circ - \angle BDP - \angle CDQ = 180 ^ \circ - \frac{1}{2} \times \angle BDE - \frac{1}{2} \times \angle CDF \\
+    &= 180 ^\circ - \frac{\angle A}{2} - \frac{\angle A}{2} = 180 ^ \circ - \angle A
+\end{align*}
+and so $A, D, P, Q$ are concyclic.
+Then
+\begin{align*}
+    \angle APQ &= \angle ADQ = 180^\circ - \angle DAQ - \angle ACD - \angle CDQ \\
+    &= 180 ^ \circ - \frac{\angle B - \angle C}{2} - \angle C - \frac{\angle A}{2} = 90^\circ.
+\end{align*}
+
+\solnum{2} As before, show that $A, D, P, Q$ are concyclic. Then $\angle DFC = \angle DBE$ and $\angle DCF = \angle DEB$. These show that $\triangle DFC$ and $\triangle DBE$ are directly similar. Thus there exists a spiral similarity with centre $D$ mapping $\triangle DFC$ to $\triangle DBE$. Now the image of $Q$ is $P$ under this transformation since they are the corresponding points on sides $CF$ and $EB$. It follows that $\triangle DPQ = \triangle DBF$ are directly similar. Then
+\begin{align*}
+    \angle (PQ, AB) &= \angle (PQ, BF) + \angle FBA = \angle(PD,BD) + \angle B - \angle CBF \\
+    &= \frac{1}{2} \times \angle EDB + \angle B - \angle DAC = \frac{\angle{A}}{2} + \angle B - \frac{\angle B - \angle C}{2} = 90 ^ \circ.
+\end{align*}
+
+%------------------------------------------%
+
+\item \textit{Let \(a\), \(b\), and \(c\) be positive real numbers. Prove that
+\[a^{2}b^{2} + b^{2}c^{2} + c^{2}a^{2} + \frac{1}{3}(a^{2} + b^{2} + c^{2})^{2} \geqslant \frac{1}{2}((ab + bc)^{2} + (bc + ca)^{2} + (ca + ab)^{2}).\]}
+
+\sol We have the following double implications.
+\begin{align*}
+& & a^{2}b^{2} + b^{2}c^{2} + c^{2}a^{2} + \frac{1}{3}(a^{2} + b^{2} + c^{2})^{2} &\geqslant \frac{1}{2}((ab + bc)^{2} + (bc + ca)^{2} + (ca + ab)^{2})\\
+&\iff & \frac{1}{3}(a^{4} + b^{4} + c^{4}) + \frac{5}{3}(a^{2}b^{2} + b^{2}c^{2} + c^{2}a^{2}) &\geqslant (a^{2}b^{2} + b^{2}c^{2} + c^{2}a^{2}) + abc(a + b + c)\\
+&\iff & a^{4} + b^{4} + c^{4} + 2(a^{2}b^{2} + b^{2}c^{2} + c^{2}a^{2}) &\geqslant 3abc(a + b + c)\\
+&\iff & (a^{2} + b^{2} + c^{2})^{2} &\geqslant 3abc(a + b + c).
+\end{align*}
+The last statement is true since
+\[\frac{1}{2}\left(\sum_{\textrm{sym}}a^{4}\right) + \left(\sum_{\textrm{sym}}a^{2}b^{2}\right) \geqslant \frac{1}{2}\left(\sum_{\textrm{sym}}a^{2}bc\right) + \left(\sum_{\textrm{sym}}a^{2}bc\right)\]
+by Muirhead's inequality, or since, using \(x^{2} + y^{2} + z^{2} \geqslant xy + yz + zx\) twice,
+\begin{align*}
+&\mspace{24mu} (a^{2} + b^{2} + c^{2})^{2}\\
+& \geqslant (ab + bc + ca)^{2}\\
+& = (ab)^{2} + (bc)^{2} + (ca)^{2} + 2((ab)(bc) + (bc)(ca) + (ca)(ab))\\
+& \geqslant (ab)(bc) + (bc)(ca) + (ca)(ab) + 2((ab)(bc) + (bc)(ca) + (ca)(ab))\\
+& = 3abc(a + b + c).
+\end{align*}
+This completes the proof. $\hfill\blacksquare$
+
+%------------------------------------------%
+
+\item \textit{Consider a 25-by-25 grid of unit squares. With a red pen, draw contours of squares of any size on the grid. What is the minimum number of squares we must draw in order to colour the entire grid red?}
+
+\sol $48$ squares. We begin by showing that $48$ is a lower bound. Consider all grid segments of length $1$ that have exactly one endpoint on the border of the grid. Every horizontal and every vertical line that cuts the grid into two parts determines two such segments. So we have $4 \cdot 24 = 96$ such segments. It is evident that every red square can contain at most two of these segments. So at least $48$ squares are required.
+
+We now perform a construction. For each grid vertex $A$ on a diagonal but not on the boundary of the large 25-by-25 square, denote by $C_{A}$ the endpoint of that diagonal further from $A$, and let the square with the diagonal $AC_{A}$ be red. Thus, we have defined the set of $48$ red squares. It is clear that if we draw all these squares, all the lines in the grid will turn red. $\hfill\blacksquare$
+
+\end{enumerate}
+\end{document}

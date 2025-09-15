@@ -1,0 +1,184 @@
+\documentclass[12pt]{article}
+%We love you Liam :)
+\usepackage{mathtools,amssymb,amsthm}
+\usepackage{tikz,fullpage}
+% \pgfplotsset{compat=1.15}
+\usepackage{enumitem}
+% \pagestyle{empty}
+\newcommand{\sol}{\textbf{Solution.}}
+
+\begin{document}
+\begin{center} \Large
+    \textbf{Stellenbosch Camp December 2024}
+    
+    \textbf{Intermediate Section Test 1}
+    
+    \textbf{Time: \(2 \frac{1}{2}\) hours}
+\end{center}
+
+\begin{enumerate}[itemsep=2\bigskipamount,topsep=3\bigskipamount]
+%2018 Austria beginners P2
+\item \textit{Let $ABC$ be an acute-angled triangle, $M$ the midpoint of the side $AC$, and $F$ the foot on $AB$ of the altitude through the vertex $C$. Prove that if $\angle BAC = 60^{\circ}$ then $AM = AF$.}
+
+\begin{proof}[Solution 1]
+$\angle ACF = 180^{\circ} - 90^{\circ} - 60^{\circ} = 30^{\circ}$ thus $\triangle ACF$ is the special 30-60-90 triangle and so $\frac{AF}{AC} = \frac{1}{2}$ but since $AC = 2AM$ we get
+\[ AF = \frac{1}{2}AC = \frac{1}{2}(2AM) = AM \]
+as required.
+\end{proof}
+
+\begin{proof}[Solution 2]
+Since $\angle AFC = 90^{\circ}$ and $M$ is the midpoint of $AC$ we get that $M$ is the circumcenter of $\triangle AFC$ and so $AM=CM=FM$ thus $AM=FM\implies \angle AFM = \angle MAF = 60^{\circ}$ and so by the angles in $\triangle AMF$ we get $\angle FMA = 60^{\circ}$. Thus $\triangle AMF$ is equilateral and $AM = AF$. 
+\begin{center}
+\definecolor{wqwqwq}{rgb}{0.3764705882352941,0.3764705882352941,0.3764705882352941}
+\definecolor{uuuuuu}{rgb}{0.26666666666666666,0.26666666666666666,0.26666666666666666}
+\definecolor{uququq}{rgb}{0.25098039215686274,0.25098039215686274,0.25098039215686274}
+\begin{tikzpicture}[scale=0.7,line cap=round,line join=round,x=1cm,y=1cm]
+    \tikzstyle{every node} = [font=\large]
+    % \clip(-9.78,-5.94) rectangle (9.78,5.94);
+    \draw [shift={(-5.56,-1.52)},line width=2pt,fill=black,fill opacity=0.1] (0,0) -- (-0.8485892911706315:0.6) arc (-0.8485892911706315:59.15141070882936:0.6) -- cycle;
+    \draw[line width=2pt,fill=black,fill opacity=0.1] (-3.202671379609896,2.4268416329960028) -- (-2.838429919962766,2.209291273138502) -- (-2.620879560105265,2.5735327327856323) -- (-2.985121019752395,2.791083092643133) -- cycle; 
+    \fill[line width=2pt,color=wqwqwq,fill=wqwqwq,fill opacity=0.1] (-5.56,-1.52) -- (-2.985121019752395,2.791083092643133) -- (4.481893932356674,-1.6687381244868575) -- cycle;
+    \draw [line width=2pt] (-2.06,4.34)-- (4.481893932356674,-1.6687381244868575);
+    \draw [line width=2pt] (-2.985121019752395,2.791083092643133)-- (4.481893932356674,-1.6687381244868575);
+    \draw [line width=2pt] (-2.985121019752395,2.791083092643133)-- (-0.5390530338216628,-1.5943690622434288);
+    \draw [line width=2pt] (-1.6816427284770856,0.700478094656645) -- (-1.891243245921341,0.5835694846781655);
+    \draw [line width=2pt] (-1.632930807652719,0.6131445457215375) -- (-1.8425313250969744,0.496235935743058);
+    \draw [line width=2pt] (-5.56,-1.52)-- (-0.5390530338216628,-1.5943690622434288);
+    \draw [line width=2pt] (-3.0977438168273306,-1.4364571854672932) -- (-3.1012982493869687,-1.676430863209621);
+    \draw [line width=2pt] (-2.997754784434694,-1.4379381990338085) -- (-3.001309216994332,-1.677911876776136);
+    \draw [line width=2pt] (-0.5390530338216628,-1.5943690622434288)-- (4.481893932356674,-1.6687381244868575);
+    \draw [line width=2pt] (1.9232031493510084,-1.5108262477107213) -- (1.9196487167913683,-1.7507999254530489);
+    \draw [line width=2pt] (2.023192181743645,-1.5123072612772364) -- (2.019637749184005,-1.7522809390195642);
+    \draw [line width=2pt] (-2.06,4.34)-- (-2.985121019752395,2.791083092643133);
+    \draw [line width=2pt] (-2.985121019752395,2.791083092643133)-- (-5.56,-1.52);
+    \draw [line width=2pt] (-4.143898911649755,0.6169352801239371) -- (-4.349944996534372,0.7400003478877875);
+    \draw [line width=2pt] (-4.195176023218025,0.531082744755347) -- (-4.401222108102642,0.6541478125191975);
+    \draw [line width=2pt,color=wqwqwq] (-5.56,-1.52)-- (-2.985121019752395,2.791083092643133);
+    \draw [line width=2pt,color=wqwqwq] (-2.985121019752395,2.791083092643133)-- (4.481893932356674,-1.6687381244868575);
+    \draw [line width=2pt,color=wqwqwq] (4.481893932356674,-1.6687381244868575)-- (-5.56,-1.52);
+    % \begin{scriptsize}
+    \draw [fill=uququq] (-5.56,-1.52) circle (2pt);
+    \draw[color=uququq] (-5.98,-1.03) node {$A$};
+    \draw [fill=uququq] (-2.06,4.34) circle (2pt);
+    \draw[color=uququq] (-1.74,4.87) node {$B$};
+    \draw [fill=uququq] (4.481893932356674,-1.6687381244868575) circle (2pt);
+    \draw[color=uququq] (4.64,-1.27) node {$C$};
+    \draw [fill=uuuuuu] (-0.5390530338216628,-1.5943690622434288) circle (2pt);
+    \draw[color=uuuuuu] (-0.38,-1.21) node {$M$};
+    \draw [fill=uuuuuu] (-2.985121019752395,2.791083092643133) circle (2pt);
+    \draw[color=uuuuuu] (-3.32,3.19) node {$F$};
+    % \end{scriptsize}
+\end{tikzpicture}
+\end{center}
+\end{proof}
+
+%-------------------------------------------------------%
+\item \textit{Alice and Bob play the following game. At the start, the number \(n\) has the value 0. The players take turns; on each turn, the current player increases \(n\) by one of the following numbers: 1, 2, 3, 4, 5, 6, 7. The winner is the player who causes \(n\) to be greater than or equal to 2024 for the first time. With Alice playing first, which player, if either, can guarantee victory in this game?}
+
+\begin{proof}[Solution]
+Bob can always guarantee a victory.
+
+Note that 2024 is divisible by 8. Now consider the following parity strategy. For any $x$ that Alice chooses to increase $n$ by, there is a valid number $8 - x$ that Bob can choose. With this strategy, after both Alice and Bob's turns, the number is $n + 8$. Starting with $n = 0$, after $k$ of Bob's turns, the number will be $8k$ thus Bob can ensure that he will always end his turn on a number divisible by 8, specifically the next multiple of 8. Therefore, Bob can ensure that he will be the player to end his turn on 2024.
+\end{proof}
+
+%-------------------------------------------------------%
+\item \textit{Find the largest 2024-digit number consisting of only $1$s and $2$s such that the number is a multiple of $72$.}
+
+\begin{proof}[Solution]
+Answer = $\underbrace{22\dots 2}_{2016}\underbrace{11\dots 1}_{7}2$.
+
+Note $a|n$ means $a$ divides into $n$.
+Let our number be $n$.
+We have $72|n$ if and only if $8|n$ and $9|n$.
+Now $8|n$ if and only if its last three digits are divisible by $8$.
+If $8|n$, then its last digit must be even, hence its last digit must be 2.
+If $8|n$, then its last two digits must form a multiple of $4$, only $12$ is a multiple of $4$ out of $12$ and $22$ hence its last two digit must be $12$.
+The last three digits must be a multiple of $8$, but $8\nmid 212$ and $8|112$, where $8\nmid 212$ means `$8$ does not divide into $212$'.
+Now we must find the first $2021$ digits.
+
+Now $9|n$ if and only if the sum of $n$'s digits is a multiple of $n$.
+
+Now we want $n$ to be as large as possible, hence we want it to have as many $2$'s as possible.
+Try make the first $2021$ digits all $2$, hence its digit sum is $2\cdot 2021+1+1+2=4046$.
+Now $9\nmid 4046$ because $4+0+4+6=14$ is not a multiple of $9$.
+
+Each $2$ that is changed to a $1$ will decrease the digit sum of $n$ by $1$ starting from $4046$; which will decrease the digit sum of the digit sum by $1$ starting from $14$ (up until the last digit of $4046$ becomes $9$, which happens only after we change $7$ twos to $1$).
+We must decrease $14$ by $5$ to get $9$.
+So to make $n$ maximal, set the last $5$ digits of the first $2021$ digits equal to $1$, which gives $\underbrace{22\dots 2}_{2016}\underbrace{11\dots 1}_{7}2$.    
+\end{proof}
+
+\item \textit{Find all functions \(f: \mathbb{R} \rightarrow \mathbb{R}\) for which there are real numbers \(a\) and \(b\) such that, for all \(x, y \in \mathbb{R}\), we have \(f(x) + f(y) = ax + by\).}
+
+\begin{proof}[Solution]
+Suppose that we have such a function \(f\) with corresponding real numbers \(a\) and \(b\). Write \(c = -f(0)\). For all real \(x\), we have \(f(x) + f(0) = ax + b0 = ax\), so \(f(x) = ax - f(0) = ax + c\). Therefore, for all real \(x\) and \(y\), we have \(f(x) + f(y) = ax + ay + 2c = ax + by\), so \((a - b)y = -2c\). It follows that \(a - b = -2c = 0\), so \(a = b\) and \(c = 0\). Therefore, for all \(x \in \mathbb{R}\), we have \(f(x) = ax\). For each real \(a\), that solution checks.
+\end{proof}
+
+\item \textit{Let $ABCD$ be a convex quadrilateral with $\angle BCD = 90^{\circ}$. Let $P$ be on $CD$ such that $\angle APD = \angle BPC$ and $\angle BAP = \angle ABC$. Prove that \[BC = \frac{AP + BP}{2}.\]}
+
+\begin{proof}[Solution]
+\mbox{}
+\begin{center}
+\definecolor{uuuuuu}{rgb}{0.26666666666666666,0.26666666666666666,0.26666666666666666}
+\definecolor{uququq}{rgb}{0.25098039215686274,0.25098039215686274,0.25098039215686274}
+\begin{tikzpicture}[line cap=round,line join=round,x=1cm,y=1cm]
+    \tikzstyle{every node} = [font=\large]
+    \draw [shift={(-0.5122431051538235,-1.4849863182730092)},line width=2pt,color=uququq,fill=uququq,fill opacity=0.1] (0,0) -- (-0.14463370274463377:0.6) arc (-0.14463370274463377:56.557376128256045:0.6) -- cycle;
+    \draw [shift={(-0.5122431051538235,-1.4849863182730092)},line width=2pt,color=uququq,fill=uququq,fill opacity=0.1] (0,0) -- (123.15335646625468:0.6) arc (123.15335646625468:179.85536629725536:0.6) -- cycle;
+    \draw [shift={(-0.5122431051538235,-1.4849863182730092)},line width=2pt,color=uququq,fill=uququq,fill opacity=0.1] (0,0) -- (-56.846643533745336:0.6) arc (-56.846643533745336:-0.1446337027446348:0.6) -- cycle;
+    \draw[line width=2pt,color=uququq,fill=uququq,fill opacity=0.1] (2.071146529204397,-1.0672422507698889) -- (1.6468838122530274,-1.066171267556976) -- (1.6458128290401148,-1.4904339845083454) -- (2.070075545991484,-1.4915049677212582) -- cycle; 
+    \draw [shift={(2.08,2.44)},line width=2pt,color=uququq,fill=uququq,fill opacity=0.1] (0,0) -- (-163.49563861824498:0.6) arc (-163.49563861824498:-90.14463370274464:0.6) -- cycle;
+    \draw [shift={(-2.24,1.16)},line width=2pt,color=uququq,fill=uququq,fill opacity=0.1] (0,0) -- (-56.84664353374533:0.6) arc (-56.84664353374533:16.504361381755015:0.6) -- cycle;
+    \draw [line width=2pt] (-2.24,1.16)-- (2.08,2.44);
+    \draw [line width=2pt] (-0.5122431051538235,-1.4849863182730092)-- (2.08,2.44);
+    \draw [line width=2pt] (0.656190790966049,0.5019171335390991) -- (0.8564559385314638,0.36965273670230203);
+    \draw [line width=2pt] (0.7113009563147139,0.5853609450246893) -- (0.9115661038801287,0.4530965481878923);
+    \draw [line width=2pt] (-4.7619951438783055,-1.4742585005537898)-- (-2.24,1.16);
+    \draw [line width=2pt] (-4.7619951438783055,-1.4742585005537898)-- (2.070075545991484,-1.4915049677212582);
+    \draw [shift={(-0.5122431051538235,-1.4849863182730092)},line width=2pt,color=uququq] (-0.14463370274463377:0.6) arc (-0.14463370274463377:56.557376128256045:0.6);
+    \draw[line width=2pt,color=uququq] (-0.04958638285645863,-1.2368457183844397) -- (0.08260125208564549,-1.1659484041305632);
+    \draw [shift={(-0.5122431051538235,-1.4849863182730092)},line width=2pt,color=uququq] (123.15335646625468:0.6) arc (123.15335646625468:179.85536629725536:0.6);
+    \draw[line width=2pt,color=uququq] (-0.973641156778314,-1.2345130902482857) -- (-1.1054691715281675,-1.1629493108126507);
+    \draw [shift={(-0.5122431051538235,-1.4849863182730092)},line width=2pt,color=uququq] (-56.846643533745336:0.6) arc (-56.846643533745336:-0.1446337027446348:0.6);
+    \draw[line width=2pt,color=uququq] (-0.050845053529334355,-1.7354595462977318) -- (0.08098296122051923,-1.8070233257333665);
+    \draw [shift={(2.08,2.44)},line width=2pt,color=uququq] (-163.49563861824498:0.6) arc (-163.49563861824498:-90.14463370274464:0.6);
+    \draw [shift={(2.08,2.44)},line width=2pt,color=uququq] (-163.49563861824498:0.47) arc (-163.49563861824498:-90.14463370274464:0.47);
+    \draw [shift={(-2.24,1.16)},line width=2pt,color=uququq] (-56.84664353374533:0.6) arc (-56.84664353374533:16.504361381755015:0.6);
+    \draw [shift={(-2.24,1.16)},line width=2pt,color=uququq] (-56.84664353374533:0.47) arc (-56.84664353374533:16.504361381755015:0.47);
+    \draw [line width=2pt] (-2.24,1.16)-- (-0.5122431051538235,-1.4849863182730092);
+    \draw [line width=2pt,dash pattern=on 3pt off 3pt] (-0.5122431051538235,-1.4849863182730092)-- (2.0601510919829678,-5.423009935442517);
+    \draw [line width=2pt,dash pattern=on 1pt off 1pt] (0.8470750768797248,-3.3465118153902904) -- (0.6461447253172369,-3.477763458507532);
+    \draw [line width=2pt,dash pattern=on 1pt off 1pt] (0.901763261511907,-3.4302327952079943) -- (0.700832909949419,-3.5614844383252353);
+    \draw [line width=2pt] (2.08,2.44)-- (2.070075545991484,-1.4915049677212582);
+    \draw [line width=2pt] (2.19503739066012,0.47394459634241687) -- (1.9550381553313647,0.47455043593632584);
+    \draw [line width=2pt,dash pattern=on 3pt off 3pt] (2.070075545991484,-1.4915049677212582)-- (2.0601510919829678,-5.423009935442517);
+    \draw [line width=2pt,dash pattern=on 1pt off 1pt] (2.1851129366516053,-3.4575603713788428) -- (1.9451137013228499,-3.456954531784934);
+    
+    \draw [fill=uququq] (-2.24,1.16) circle (2pt);
+    \draw[color=uququq] (-2.14,1.59) node {$A$};
+    \draw [fill=uququq] (2.08,2.44) circle (2pt);
+    \draw[color=uququq] (2.24,2.83) node {$B$};
+    \draw [fill=uququq] (2.0601510919829678,-5.423009935442517) circle (2pt);
+    \draw[color=uququq] (2.34,-5.03) node {$Q$};
+    \draw [fill=uuuuuu] (-0.5122431051538235,-1.4849863182730092) circle (2pt);
+    \draw[color=uuuuuu] (-0.52,-0.79) node {$P$};
+    \draw [fill=uuuuuu] (2.070075545991484,-1.4915049677212582) circle (2pt);
+    \draw[color=uuuuuu] (2.4,-1.19) node {$C$};
+    \draw [fill=uququq] (-4.7619951438783055,-1.4742585005537898) circle (2pt);
+    \draw[color=uququq] (-5.04,-1.09) node {$D$};
+\end{tikzpicture}
+\end{center}
+Let $AP\cap BC = \{Q\}$.
+Then $Q$ lies on the opposite side of $DC$ as $AB$, because $\angle APD = \angle BPC < 90^{\circ}$.
+Now $\angle CPQ = \angle APD = \angle BPC$ and $\angle PCQ = \angle PCB = 90^{\circ}$ thus $\triangle PBC \equiv \triangle PQC$ and so $BC = CQ$ and $PB=PQ$.
+Now since $\angle PAB = \angle ABC$ we have
+\[\begin{aligned}
+&&AQ&=BQ\\
+&\implies&AP+PQ&=BC+CQ\\
+&\implies&AP+PB&=BC+BC\\
+&\implies&AP+PB&=2BC\\
+&\implies&\frac{AP+PB}{2}&=BC
+\end{aligned}\]
+as required.
+\end{proof}
+\end{enumerate}
+\end{document}

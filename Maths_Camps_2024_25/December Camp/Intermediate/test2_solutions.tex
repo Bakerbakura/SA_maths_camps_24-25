@@ -1,0 +1,143 @@
+\documentclass[12pt]{article}
+\usepackage{mathtools,amssymb,amsthm}
+\usepackage{pgfplots,fullpage}
+\pgfplotsset{compat=1.15}
+\usepackage{enumitem}
+% \newcommand{\sol}{\textbf{Solution.}}
+\newcommand{\sol}{\textbf{\textit{Solution: }}}
+
+\begin{document}
+\begin{center} \large
+\textbf{Stellenbosch Camp December 2024}
+
+\textbf{Intermediate Section Test 2 Solutions}
+
+\textbf{Time: \(2 \frac{1}{2}\) hours}
+\end{center}
+\begin{enumerate}[topsep=2\bigskipamount,itemsep=\bigskipamount]
+%estonian junior open
+\item \textit{Find all primes $p$
+such that there is at least one integer $x$
+such that
+\begin{align*}
+p &\mid5x-8
+\\ p &\mid8x-10
+\\ p &\mid11x-5
+\end{align*}}
+
+\sol
+\begin{align}
+&&p &\mid5x-8\label{div1}\\
+&&p &\mid8x-10\label{div2}\\
+&&p &\mid11x-5\label{div3}\\
+(\ref{div2})-(\ref{div1}) && p &\mid3x-2\label{div4}\\
+(\ref{div3})-(\ref{div2}) && p &\mid3x+5\label{div5}\\
+(\ref{div5})-(\ref{div4}) && p &\mid7
+\end{align}
+Hence if there is any solution it must be $7$.
+It is easy to check that $x=10$ and $p=7$ works.
+Answer = 7.
+
+\item \textit{Let $ABCD$ be a parallelogram with an acute angle at $A$. Let $G$ be a point on line $AB$, distinct from $B$, such that $\overline{CG}=\overline{CB}$. Let $H$ be a point on line $BC$, distinct from $B$, such that $\overline{AB}=\overline{AH}$. Prove that $\triangle DGH$ is isosceles.  }
+
+\sol 
+\begin{center}
+\definecolor{uuuuuu}{rgb}{0.26666666666666666,0.26666666666666666,0.26666666666666666}
+\definecolor{uququq}{rgb}{0.25098039215686274,0.25098039215686274,0.25098039215686274}
+\begin{tikzpicture}[scale=0.7,line cap=round,line join=round,x=1cm,y=1cm]
+    \tikzstyle{every node} = [font=\large]
+    % \clip(-5.311272703504871,-8.861042834491945) rectangle (11.07217781028638,4.258243793744809);
+    \draw [shift={(-4,-3)},line width=2pt,color=uququq,fill=uququq,fill opacity=0.1] (0,0) -- (0:0.5065361632523847) arc (0:68.19859051364818:0.5065361632523847) -- cycle;
+    \draw [shift={(6,2)},line width=2pt,color=uququq,fill=uququq,fill opacity=0.1] (0,0) -- (180:0.5065361632523847) arc (180:248.19859051364818:0.5065361632523847) -- cycle;
+    \draw [shift={(-4,-3)},line width=2pt,color=uququq,fill=uququq,fill opacity=0.1] (0,0) -- (-43.602818972703616:0.5065361632523847) arc (-43.602818972703616:0:0.5065361632523847) -- cycle;
+    \draw [shift={(6,2)},line width=2pt,color=uququq,fill=uququq,fill opacity=0.1] (0,0) -- (-111.80140948635183:0.5065361632523847) arc (-111.80140948635183:-68.19859051364821:0.5065361632523847) -- cycle;
+    \draw [line width=2pt] (-4,-3)-- (4,-3);
+    \draw [line width=2pt] (-0.04221134693769776,-2.898692767349523) -- (-0.04221134693769776,-3.101307232650477);
+    \draw [line width=2pt] (0.04221134693769968,-2.898692767349523) -- (0.04221134693769968,-3.101307232650477);
+    \draw [line width=2pt] (4,-3)-- (6,2);
+    \draw [line width=2pt] (4.905938595865942,-0.4623754383463768) -- (5.0940614041340595,-0.5376245616536225);
+    \draw [line width=2pt] (6,2)-- (-2,2);
+    \draw [line width=2pt] (2.0422113469376995,1.898692767349523) -- (2.0422113469376995,2.101307232650477);
+    \draw [line width=2pt] (1.957788653062302,1.898692767349523) -- (1.957788653062302,2.101307232650477);
+    \draw [line width=2pt] (-2,2)-- (-4,-3);
+    \draw [line width=2pt] (-2.9059385958659423,-0.5376245616536225) -- (-3.0940614041340573,-0.4623754383463768);
+    \draw [line width=2pt] (4,-3)-- (8,-3);
+    \draw [line width=2pt] (8,-3)-- (6,2);
+    \draw [line width=2pt] (6.905938595865941,-0.5376245616536225) -- (7.0940614041340595,-0.4623754383463768);
+    \draw [line width=2pt] (-4,-3)-- (1.7931034482758625,-8.517241379310343);
+    \draw [line width=2pt] (-1.0641480562993835,-5.656149006054688) -- (-1.2038821703000404,-5.802869825755377);
+    \draw [line width=2pt] (-1.003014381424095,-5.714371553554964) -- (-1.142748495424752,-5.861092373255653);
+    \draw [line width=2pt] (1.7931034482758625,-8.517241379310343)-- (4,-3);
+    \draw [line width=2pt,dash pattern=on 1pt off 1pt] (-2,2)-- (1.7931034482758625,-8.517241379310343);
+    \draw [line width=2pt,dash pattern=on 1pt off 1pt] (-2,2)-- (8,-3);
+    \draw [shift={(-4,-3)},line width=2pt,color=uququq] (-43.602818972703616:0.5065361632523847) arc (-43.602818972703616:0:0.5065361632523847);
+    \draw [shift={(-4,-3)},line width=2pt,color=uququq] (-43.602818972703616:0.396786661214368) arc (-43.602818972703616:0:0.396786661214368);
+    \draw [shift={(6,2)},line width=2pt,color=uququq] (-111.80140948635183:0.5065361632523847) arc (-111.80140948635183:-68.19859051364821:0.5065361632523847);
+    \draw [shift={(6,2)},line width=2pt,color=uququq] (-111.80140948635183:0.396786661214368) arc (-111.80140948635183:-68.19859051364821:0.396786661214368);
+    \begin{scriptsize}
+    \draw [fill=uququq] (-4,-3) circle (2pt);
+    \draw[color=uququq] (-4.4589833974857925,-2.7403975285256346) node {$A$};
+    \draw [fill=uququq] (4,-3) circle (2pt);
+    \draw[color=uququq] (4.284593222704428,-3.51316461422786) node {$B$};
+    \draw [fill=uququq] (6,2) circle (2pt);
+    \draw[color=uququq] (6.1418924879631716,2.4249641039982083) node {$C$};
+    \draw [fill=uququq] (-2,2) circle (2pt);
+    \draw[color=uququq] (-1.8613788914245057,2.4249641039982083) node {$D$};
+    \draw [fill=uququq] (8,-3) circle (2pt);
+    \draw[color=uququq] (8.334268063422551,-2.6728593734253168) node {$G$};
+    \draw [fill=uuuuuu] (1.7931034482758625,-8.517241379310343) circle (2pt);
+    \draw[color=uuuuuu] (2.2909104145945713,-8.210988091651386) node {$H$};
+    \end{scriptsize}
+\end{tikzpicture}
+\end{center}
+By isosceles triangles $HAB$ and $BCG$ we get $\angle AHB = \angle ABH = \angle CBG = \angle CGB$ and thus $\triangle AHB\sim\triangle CBG\implies \angle HAB = \angle BCG$. Since $ABCD$ is a parallelogram, $\angle DAB = \angle DCB$ and so $\angle HAD = \angle DCG$. From the given side equalities and the parallelogram $ABCD$, we have $DC=AB=AH$ and $AD=BC=GC$ and so $\triangle HAD\equiv\triangle DCG$ from which $HD=DG$ follows, thus $\triangle DGH$ is isosceles.
+
+\item \textit{For all real numbers $x$ prove that
+$$x^4 + 3x^2 + 2 \geqslant 2x^3 + 4x.$$}
+\sol Note that:
+\begin{align*}
+           &x^4 + 3x^2 + 2                    \geqslant 2x^3 + 4x     \\
+    \iff\; &x^4 - 2x^3 + x^2 + 2x^2 - 4x + 2  \geqslant 0             \\
+    \iff\; &x^2(x - 1)^2 + 2(x-1)^2           \geqslant 0,
+\end{align*}
+which is true since the square of a real number is always greater than or equal to 0.
+\item \textit{A \emph{Collatz sequence} is a sequence \((a_{0}, a_{1}, a_{2}, \ldots)\) of positive integers \(a_{k}\) such that for all non-negative integers \(k\),
+\[a_{k + 1} = \begin{cases}
+\frac{a_{k}}{2} & \textrm{if \(a_{k}\) is even}\\
+3a_{k} + 1 & \textrm{if \(a_{k}\) is odd.}
+\end{cases}\]
+Prove that there are infinitely many positive integers \(N\) such that if \((a_{0}, a_{1}, a_{2}, \ldots)\) is the Collatz sequence such that \(a_{0} = N\), and     \(a_{N} = 1\).}
+
+\sol
+Let \(m\) be any positive integer such that \(m \equiv 4\) (mod 6) or \(m \equiv 5\) (mod 6). Let \(N = 2^{m}\).
+
+Let \((a_{0}, a_{1}, \ldots)\) be the Collatz sequence that starts with \(N\). We have \(a_{0} = 2^{m}\), \(a_{1} = 2^{m - 1}\), \(a_{2} = 2^{m - 2}\), \ldots, \(a_{k} = 2^{m - k}\) (for integers \(k\) such that \(0 \leqslant k \leqslant m\)), \ldots, \(a_{m} = 1\), \(a_{m + 1} = 4\), \(a_{m + 2} = 2\), \(a_{m + 3} = 1\). From that point onwards, the sequence repeats in the cycle \((4, 2, 1)\), so \(a_{m + 3r} = 1\) for all non-negative integers \(r\). Therefore, if \(2^{m} - m\) is a non-negative multiple of 3, then \(a_{N} = 1\).
+
+We have \(2^{m} \geqslant m\), since \(2^{m} = (1 + 1)^{m} = (1 + 1)(1 + 1)\cdots{}(1 + 1)\) and when we multiply that out, we obtain \(m\) terms \((1)(1)\cdots(1)\) where exactly one of the 1s is the second 1 in its bracket.
+\begin{itemize}
+\item If \(m \equiv 4\) (mod 6), then \(2^{m} \equiv 1 \equiv m\) (mod 3).
+\item If \(m \equiv 5\) (mod 6), then \(2^{m} \equiv 2 \equiv m\) (mod 3).
+\end{itemize}
+This completes the proof. $\hfill\blacksquare$
+
+\item \textit{The pupils in a class are arranged in a row so that for each three consecutive pupils, the first pupil's height is between the second and third pupils' heights. The teacher asks every second pupil in the row to step forward, so that two lines of pupils form. Show that both lines are sorted by height.}
+
+\sol
+Let $a_1$, $a_2$, $\dots$, $a_n$ be the students' heights. For every $i\in\{2, \dots, n-1\}$, 
+\begin{align}
+a_i \leqslant a_{i-1} \leqslant a_{i+1} \text{ or } a_i \geqslant a_{i-1} \geqslant a_{i+1}.\label{height1}
+\end{align}
+
+Assume for a contradiction that one of the class halves is neither in increasing order nor in decreasing order. There exists a $k$ such that
+$$(a_k < a_{k+2} \text{ and } a_{k+2} > a_{k+4}) \text{ or } (a_k > a_{k+2} \text{ and } a_{k+2} < a_{k+4}).$$
+Subtracting all heights from some large fixed number will switch between these and reverse the inequalities in the proof, so WLOG $a_k < a_{k+2}$ and $a_{k+2} > a_{k+4}$.
+
+Now by assumption $a_k \ngeqslant a_{k+2}$, so by (\ref{height1}),
+$$a_{k+1} \leqslant a_k < a_{k+2}.$$
+Therefore, $a_{k+2} \nleqslant a_{k+1}$, so by (\ref{height1}),
+$$a_{k+2} > a_{k+1} \geqslant a_{k+3}.$$
+Therefore, $a_{k+2} \nleqslant a_{k+3}$, so by (\ref{height1}),
+$$a_{k+3} < a_{k+2} \leqslant a_{k+4}.$$
+But this contradicts our assumption. Therefore, each of the class halves is sorted by height. $\hfill\blacksquare$
+\end{enumerate}
+\end{document}

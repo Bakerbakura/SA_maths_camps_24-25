@@ -1,0 +1,79 @@
+\documentclass[12pt]{article}
+\usepackage{mathtools,amssymb,graphicx}
+\usepackage{fullpage,parskip}
+\usepackage{enumitem}
+\usepackage{hyperref}
+
+\pagestyle{empty}
+
+\begin{document}
+\begin{center} \bfseries \large
+    February Monthly Problem Set
+
+    Due date: 21 February 2025
+\end{center}
+
+\bigskip
+Submit your monthly problem sets here: \url{https://forms.gle/pZH93Fq95UuABT277}.
+You can ask the coaches from the Stellenbosch Camp for hints, but do not ask other people for help or look for help online.
+
+\begin{enumerate}[topsep=\bigskipamount,itemsep=\bigskipamount]
+% C
+\item % BJ-2018-4
+$2025$ people sit around a circular table.
+Every hour there is a vote, where each person votes either yes or no.
+Each person $X$ obeys the following rule.
+On the $n$th hour, if $X$'s vote is the same as that of at least one of the neighbours of $X$, then $X$'s vote will be the same on the $(n+1)$th hour as on the $n$th hour; otherwise, $X$'s vote on the $(n+1)$th hour will be different from $X$'s vote on the $n$th hour.
+
+Prove that, irrespective of how everyone votes on the first hour, there will be an hour after which nobody's vote will ever change.
+
+% N
+\item % JM-2019-2
+Let $f,g : \mathbb{Z} \to \mathbb{Z}$ be two functions such that $|f(x)| \leqslant |x|$ and $f(3x+4y) = g(2x+5y)$ for all $x,y \in \mathbb{Z}$.
+Find the largest possible value of $f(2025)$.
+
+% A
+\newcommand*{\parens}[1]{\left(#1\right)}
+\item % LB-2019-3
+Let $a$, $b$, $m$, and $n$ be positive integers such that $a \neq b$. Show that
+\[ \frac{\parens{a-b}\parens{a^2-b^2}\dotsb\parens{a^{m+n}-b^{m+n}}}{\parens{a-b}\parens{a^2-b^2}\dotsb\parens{a^m-b^m} \cdot \parens{a-b}\parens{a^2-b^2}\dotsb\parens{a^n-b^n}} \]
+is an integer. 
+
+% G
+\item % 2016 Bulgaria JBMO TST 2.2 (Adapted)
+The vertices of the pentagon $ABCDE$ lie on a circle in that order.
+The points $H_1$, $H_2$, $H_3$, $H_4$ are the orthocentres of the triangles $ABC$, $ABE$, $ACD$, $ADE$ respectively.
+Prove that the quadrilateral determined by the four orthocentres is a rhombus if and only if $BE\parallel CD$ or $BC\parallel DE$.
+
+% A
+\item Find all functions \(f: \mathbb{R} \rightarrow \mathbb{R}\) such that, for all \(x, y \in \mathbb{R}\), we have
+\[f(f(x - y)) = f(x)f(y) - f(x) + f(y) - xy.\]
+
+% G
+\item %Turkey MO 2015, P5
+
+Let $ABCD$ be a cyclic quadrilateral whose largest interior angle is $D$. The lines $BC$ and $AD$ intersect at point $E$, and the lines $AB$ and $CD$ intersect at point $F$. A point $P$ is taken inside of quadrilateral $ABCD$ such that $\angle EPD=\angle FPD=\angle BAD$. Let $O$ be the circumcentre of quadrilateral $ABCD$. Line $FO$ intersects the lines $AD$, $EP$, and $BC$ at $X$, $Q$, and $Y$ respectively. If $\angle DQX = \angle CQY$, show that $\angle AEB=90^\circ$.
+
+% N
+\item 
+Let $a_1, a_2, a_3, a_4$ be integers such that $0 < a_1 \leqslant a_2 \leqslant a_3 \leqslant a_4 < 23$.
+Suppose that $23 \mid a_1^n+a_2^n+a_3^n+a_4^n$ for all positive odd integers $n$.
+Prove that $a_1+a_4 = a_2+a_3 = 23$.
+
+% C
+\item 
+Jon is playing a game with $2^{2025}$ buckets arranged in a circle, numbered clockwise in order from $1$ to $2^{2025}$, all of which are empty except for buckets $2024$ and $2025$ which are full of water.
+At the start of the game he can choose to fill some of these buckets with water (each bucket is either completely full or completely empty).
+He also has two additional buckets in his hands, one of which is full while the other is empty.
+
+After filling some of the buckets in the circle, he is given an integer $k$ from $0$ to $2024$ inclusive. He will then start at bucket $2^k$. At each step,
+\begin{itemize}
+\item If he is at an empty bucket, then he will replace it with a full bucket from the buckets he has with him, if possible; whereas
+\item If he is at a full bucket, then he will replace it with an empty bucket from the buckets he has with him, if possible;
+\end{itemize}
+and then he will move $2^k$ buckets clockwise along the circle.
+If at any step he cannot replace the bucket in this way he loses the game, but if he can continue on forever no matter the value of $k$ then he wins.
+Can Jon fill some of the circle's buckets at the start in such a way as to ensure that he will win the game?
+\end{enumerate}
+
+\end{document}

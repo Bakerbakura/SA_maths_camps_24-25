@@ -1,0 +1,257 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{pgfplots,fullpage}
+\newtheorem{lemma}[]{Lemma}
+\pgfplotsset{compat=1.15}
+\newcommand{\sol}[0]{\textbf{\textit{Solution: }}}
+\newcommand{\solnum}[1]{\textbf{\textit{Solution #1: }}}
+
+\begin{document}
+\begin{center}
+\textbf{Stellenbosch Camp December 2024}
+
+\textbf{Advanced Section Test 3 Solutions}
+\end{center}
+
+\begin{enumerate}
+\item \textit{The diagonals $AC$ and $BD$ of a cyclic quadrilateral $ABCD$ intersect at $P$. The circumcircle of the triangle $PDC$ intersects $BC$ at a point $E$, beyond $C$, and intersects $AD$ at a point $F$, beyond $D$. The circumcircle of the triangle $PAB$ intersects $BC$ at a point $H$, between $B$ and $C$, and intersects $AD$ at a point $G$, beyond $A$. Prove that $E$, $F$, $G$, and $H$ lie on the circumference of a circle with centre $P$.}
+
+\definecolor{uuuuuu}{rgb}{0.26666666666666666,0.26666666666666666,0.26666666666666666}
+\definecolor{uququq}{rgb}{0.25098039215686274,0.25098039215686274,0.25098039215686274}
+\begin{center}
+\begin{tikzpicture}[line cap=round,line join=round,x=1cm,y=1cm, scale=0.6]
+\tikzstyle{every node} = [font=\normalsize]
+% \clip(-9.36,-5.73) rectangle (15.36,9.81);
+\draw [line width=2pt] (-2.9631577298469693,1.0085340402458127) circle (4.525182915383754cm);
+\draw [line width=2pt] (-0.36,4.71)-- (-0.3,-2.65);
+\draw [line width=2pt] (-7.08,-0.87)-- (1.4291974663749007,2.096879687503036);
+\draw [line width=2pt] (1.3705004261601699,-0.5701347267825656) circle (2.667660253581243cm);
+\draw [line width=2pt] (-4.667344728080366,3.060888274677429) circle (4.612243281649191cm);
+\draw [line width=2pt] (-4.4967479140850255,-1.5481989252107162)-- (1.8039052492878591,-3.202352705565249);
+\draw [line width=2pt] (-7.08,-0.87)-- (-0.3,-2.65);
+\draw [line width=2pt] (-1.572119682439728,6.480299043502523)-- (3.8782271825381485,-1.4799246717056354);
+\draw [line width=2pt] (-0.36,4.71)-- (1.4291974663749007,2.096879687503036);
+\draw [line width=2pt] (1.4291974663749007,2.096879687503036)-- (-0.3,-2.65);
+\draw [line width=2pt] (-0.36,4.71)-- (-7.08,-0.87);
+\draw [line width=2pt] (-1.572119682439728,6.480299043502523)-- (-4.4967479140850255,-1.5481989252107162);
+\draw [line width=2pt] (3.8782271825381485,-1.4799246717056354)-- (1.8039052492878591,-3.202352705565249);
+\draw [line width=2pt] (-4.4967479140850255,-1.5481989252107162)-- (3.8782271825381485,-1.4799246717056354);
+\draw [line width=2pt] (-0.333686572073226,1.4822195076490514)-- (3.8782271825381485,-1.4799246717056354);
+\draw [line width=2pt] (1.8004030088102878,0.12806688452196682) -- (1.6623405554585429,-0.06824602634865755);
+\draw [line width=2pt] (1.8822000550063809,0.07054086229207428) -- (1.744137601654636,-0.1257720485785501);
+\draw [line width=2pt] (-4.4967479140850255,-1.5481989252107162)-- (-0.333686572073226,1.4822195076490514);
+\draw [line width=2pt] (-2.5262637220812487,0.03460229889190373) -- (-2.3850190769221764,-0.15943365193651401);
+\draw [line width=2pt] (-2.445415409236075,0.0934542343748501) -- (-2.304170764077003,-0.10058171645356766);
+\draw [line width=2pt] (-1.572119682439728,6.480299043502523)-- (-0.333686572073226,1.4822195076490514);
+\draw [line width=2pt] (-0.8484509205673498,4.058652663651076) -- (-1.0814061992389656,4.000930586947004);
+\draw [line width=2pt] (-0.8244000552739885,3.9615879642045706) -- (-1.0573553339456043,3.903865887500499);
+\draw [line width=2pt,dash pattern=on 3pt off 3pt] (-0.33368657207322655,1.4822195076490496) circle (5.14922475869614cm);
+\begin{scriptsize}
+\draw [fill=uququq] (-0.36,4.71) circle (2pt);
+\draw[color=uququq] (0,5.1) node {$A$};
+\draw [fill=uququq] (-7.08,-0.87) circle (2pt);
+\draw[color=uququq] (-6.92,-0.3) node {$B$};
+\draw [fill=uququq] (-0.3,-2.65) circle (2pt);
+\draw[color=uququq] (-0.14,-3.2) node {$C$};
+\draw [fill=uququq] (1.4291974663749007,2.096879687503036) circle (2pt);
+\draw[color=uququq] (1.65,2.48) node {$D$};
+\draw [fill=uuuuuu] (-0.333686572073226,1.4822195076490514) circle (2pt);
+\draw[color=uuuuuu] (-1,1.88) node {$P$};
+\draw [fill=uuuuuu] (1.8039052492878591,-3.202352705565249) circle (2pt);
+\draw[color=uuuuuu] (1.9,-2.6) node {$E$};
+\draw [fill=uuuuuu] (3.8782271825381485,-1.4799246717056354) circle (2pt);
+\draw[color=uuuuuu] (4.5,-1.5) node {$F$};
+\draw [fill=uuuuuu] (-4.4967479140850255,-1.5481989252107162) circle (2pt);
+\draw[color=uuuuuu] (-4.7,-2) node {$H$};
+\draw [fill=uuuuuu] (-1.572119682439728,6.480299043502523) circle (2pt);
+\draw[color=uuuuuu] (-1.42,6.88) node {$G$};
+\end{scriptsize}
+\end{tikzpicture}
+\end{center}
+
+\sol Since $BHPAG, ABCD, PDFEC$ are all cyclic, we have the following results: 
+\[
+\angle HGF\equiv\angle HGA = \angle HBA\equiv\angle CBA = \angle CDF =  180^{\circ}-\angle HEF
+\] showing $EFGH$ cyclic. Then 
+\[
+\angle PFD = \angle PCD\equiv \angle ACD=\angle ABD\equiv ABP = \angle AGP
+\] and thus $PF=PG$. Then 
+\[
+\angle HGP=\angle HBP\equiv\angle CBD=\angle CAD=\angle GHP
+\] and thus $PG=PH$. Since $PF=PG=PH$ we have $P$ is the centre of circle $(FGH)$ but since $EFGH$ is cyclic the result follows. $\hfill\blacksquare$
+
+%--------------------------------------------%
+
+\item \textit{Find all pairs \((p, q)\) of prime numbers such that, for some positive integer \(a\), we have
+\[p^{2} + 5pq + 4q^{2} = a^{2}.\]}
+
+\sol Suppose \((p, q)\) and \(a\) are as in the question. We have
+\[a^{2} - pq = p^{2} + 4pq + 4q^{2} = (p + 2q)^{2},\]
+so
+\[pq = a^{2} - (p + 2q)^{2} = (a - p - 2q)(a + p + 2q).\]
+Since \(pq\) is positive and \(a + p + 2q\) is positive, so is \(a - p - 2q\). Now \(a + p + 2q > p\) and \(a + p + 2q > q\), but \(p\) and \(q\) are prime, so \(a + p + 2q = pq\) and \(a - p - 2q = 1\), so \(a = p + 2q + 1\) and \((p + 2q + 1) + p + 2q = pq\), so \(2p + 4q + 1 = pq\), so
+\[9 = pq - 2p - 4q + 8 = (p - 4)(q - 2).\]
+Therefore, \((p - 4, q - 2)\) is among
+\((-9, -1), (-3, -3), (-1, -9), (1, 9), (3, 3), (9, 1).\)
+It follows that \((p, q)\) is among
+\((-5, 1), (1, -1), (3, -7), (5, 11), (7, 5), (13, 3).\)
+Since \(p\) and \(q\) are positive and prime, we find that
+\[(p, q) = (5, 11) \text{ or } (p, q) = (7, 5) \text{ or } (p, q) = (13, 3).\]
+Those three pairs are the solutions, because
+\[\begin{aligned}
+5^{2} + 5(5)(11) + 4(11)^{2} & = 784 = 28^{2},\\
+7^{2} + 5(7)(5) + 4(5)^{2} & = 324 = 18^{2}\textrm{, and}\\
+13^{2} + 5(13)(3) + 4(3)^{2} & = 400 = 20^{2}.
+\end{aligned}\]
+This completes the proof. $\hfill\blacksquare$
+
+%--------------------------------------------%
+
+\item \textit{A tournament took place among 401 players. Each two players played exactly one game. In each game, one player won and the other player lost. Prove that there is a way to put the players in a row from left to right so that for each two consecutive players in the row, the player on the left lost to the player on the right.}
+
+\sol We show that this is true for any tournament of $n$ players, where $n \geqslant 2$. Call the type of ordering in the question \emph{good}.
+
+\textit{Base case:} For two players, W.L.O.G.\@ player $A$ beats player $B$ and player $A$ goes on the right to get a good ordering.\\
+\textit{Inductive hypothesis:} Assume a good ordering exists for $k$ players.\\
+\textit{Inductive step:} Consider a tournament with $k+1$ players. Assume for a contradiction that no good ordering exists. Choose a player $P$. Among the other $k$ players, each pair has played each other once, so by our hypothesis we can find a good ordering of these players. Denote this ordering as $O_g = (a_1, a_2, \ldots, a_k)$ where $a_i$ beats $a_{i-1}$ for all $i \in \{2, \ldots, k\}$. $P$ must beat $a_1$ since if $a_1$ beats $P$, we can add $P$ to the left of $O_g$ to get a good ordering. Consider $i \in \{1, \ldots, k-1\}$. If $P$ beats $a_i$ then $P$ must also beat $a_{i+1}$, else $a_{i+1}$ beats $P$ and $(a_1, \ldots, a_i, P, a_{i+1}, \ldots, a_k)$ would be a good ordering. Therefore, $P$ beats $a_k$. But now adding $P$ to the right of the $O_g$ provides a good ordering, which is a contradiction. Therefore, a good ordering exists for $k+1$ players.
+
+Finally, by induction, the desired ordering exists for all $n \geqslant 2$, and hence for $n = 401$. $\hfill\blacksquare$
+
+%--------------------------------------------%
+
+\item \textit{Let \(ABC\) be a triangle with \(AB \neq AC\). Let \(M\) be the midpoint of \(BC\), and let \(N\) be the midpoint of the arc \(BC\) of the circumcircle of the triangle \(ABC\) containing \(A\). Let \(H\) be the foot of the perpendicular from \(N\) to \(AC\). The circumcircle of the triangle \(AMC\) and the line \(CN\) meet at \(K\), and we have \(K \neq C\). Prove \(\angle AKH = \angle CAM\).}
+
+\definecolor{wqwqwq}{rgb}{0.3764705882352941,0.3764705882352941,0.3764705882352941}
+\definecolor{xfqqff}{rgb}{0.4980392156862745,0,1}
+\definecolor{ffqqqq}{rgb}{1,0,0}
+\definecolor{qqwuqq}{rgb}{0,0.39215686274509803,0}
+\definecolor{uuuuuu}{rgb}{0.26666666666666666,0.26666666666666666,0.26666666666666666}
+\definecolor{uququq}{rgb}{0.25098039215686274,0.25098039215686274,0.25098039215686274}
+\begin{center}
+\begin{tikzpicture}[scale=0.7,line cap=round,line join=round,x=1cm,y=1cm]
+\tikzstyle{every node}=[font=\normalsize]
+% \clip(-8,-4.888) rectangle (12.608,8.18);
+\draw[line width=2pt,color=qqwuqq,fill=qqwuqq,fill opacity=0.10000000149011612] (-1.5819139074083748,0.5941263158412698) -- (-1.3342455342039974,0.9896770419362895) -- (-1.729796260299017,1.237345415140667) -- (-1.9774646335033945,0.8417946890456474) -- cycle; 
+\draw[line width=2pt,color=qqwuqq,fill=qqwuqq,fill opacity=0.10000000149011612] (0.46669047558312143,-2.4) -- (0.4666904755831215,-1.9333095244168785) -- (0,-1.9333095244168785) -- (0,-2.4) -- cycle; 
+\draw [shift={(0,4)},line width=2pt,color=qqwuqq,fill=qqwuqq,fill opacity=0.10000000149011612] (0,0) -- (-116.56505117707799:0.66) arc (-116.56505117707799:-90:0.66) -- cycle;
+\draw [shift={(0,4)},line width=2pt,color=qqwuqq,fill=qqwuqq,fill opacity=0.10000000149011612] (0,0) -- (-90:0.66) arc (-90:-63.43494882292201:0.66) -- cycle;
+\draw [shift={(0,4)},line width=2pt,color=qqwuqq,fill=qqwuqq,fill opacity=0.10000000149011612] (0,0) -- (-148.617197010333:0.66) arc (-148.617197010333:-122.052145833255:0.66) -- cycle;
+\draw [shift={(0,4)},line width=2pt,color=ffqqqq,fill=ffqqqq,fill opacity=0.1] (0,0) -- (-122.052145833255:0.88) arc (-122.052145833255:-90:0.88) -- cycle;
+\draw [shift={(3.2,-2.4)},line width=2pt,color=ffqqqq,fill=ffqqqq,fill opacity=0.1] (0,0) -- (147.947854166745:0.88) arc (147.947854166745:180:0.88) -- cycle;
+\draw [shift={(-3.556567288980571,1.8305270057973446)},line width=2pt,color=ffqqqq,fill=ffqqqq,fill opacity=0.1] (0,0) -- (-32.052145833255004:0.88) arc (-32.052145833255004:0:0.88) -- cycle;
+\draw [shift={(0,-2.4)},line width=2pt,color=xfqqff,fill=xfqqff,fill opacity=0.1] (0,0) -- (90:0.66) arc (90:121.38280298966701:0.66) -- cycle;
+\draw [shift={(3.2,-2.4)},line width=2pt,color=xfqqff,fill=xfqqff,fill opacity=0.1] (0,0) -- (116.56505117707799:0.66) arc (116.56505117707799:147.947854166745:0.66) -- cycle;
+\draw [shift={(1.0847364971013278,1.8305270057973446)},line width=2pt,color=uququq,fill=uququq,fill opacity=0.1] (0,0) -- (180:0.77) arc (180:197.89437981413946:0.77) -- cycle;
+\draw [shift={(-3.556567288980571,1.8305270057973446)},line width=2pt,color=wqwqwq,fill=wqwqwq,fill opacity=0.1] (0,0) -- (-49.946525647394445:0.88) arc (-49.946525647394445:-32.052145833255004:0.88) -- cycle;
+\draw [shift={(-1.404285763462495,6.8085715269249905)},line width=2pt,color=wqwqwq,fill=wqwqwq,fill opacity=0.1] (0,0) -- (-113.38147447031648:0.88) arc (-113.38147447031648:-95.48709465617704:0.88) -- cycle;
+\draw [line width=2pt] (0,0) circle (4cm);
+\draw [line width=2pt] (-3.556567288980571,1.8305270057973446)-- (-3.2,-2.4);
+\draw [line width=2pt] (-3.556567288980571,1.8305270057973446)-- (3.2,-2.4);
+\draw [line width=2pt] (1.6,2.5553572043281196) circle (5.207260798393585cm);
+\draw [line width=2pt] (0,4)-- (-1.9774646335033945,0.8417946890456474);
+\draw [line width=2pt] (-1.404285763462495,6.8085715269249905)-- (3.2,-2.4);
+\draw [line width=2pt] (-1.404285763462495,6.8085715269249905)-- (-1.9774646335033945,0.8417946890456474);
+\draw [line width=2pt] (-3.556567288980571,1.8305270057973446)-- (-1.404285763462495,6.8085715269249905);
+\draw [line width=2pt] (0,4)-- (0,-2.4);
+\draw [line width=2pt] (-1.9774646335033945,0.8417946890456474)-- (0,-2.4);
+\draw [line width=2pt] (0,4)-- (-3.2,-2.4);
+\draw [line width=2pt] (-1.9774646335033945,0.8417946890456474)-- (1.0847364971013278,1.8305270057973446);
+\draw [line width=2pt] (-3.556567288980571,1.8305270057973446)-- (0,-2.4);
+\draw [line width=2pt] (-3.556567288980571,1.8305270057973446)-- (0,4);
+\draw [shift={(0,4)},line width=2pt,color=qqwuqq] (-116.56505117707799:0.66) arc (-116.56505117707799:-90:0.66);
+\draw[line width=2pt,color=qqwuqq] (-0.13268231161610108,3.4379487085823857) -- (-0.17059154350641534,3.2773626253202104);
+\draw [shift={(0,4)},line width=2pt,color=qqwuqq] (-90:0.66) arc (-90:-63.43494882292201:0.66);
+\draw[line width=2pt,color=qqwuqq] (0.13268231161610108,3.4379487085823857) -- (0.17059154350641534,3.2773626253202104);
+\draw [shift={(0,4)},line width=2pt,color=qqwuqq] (-148.617197010333:0.66) arc (-148.617197010333:-122.052145833255:0.66);
+\draw[line width=2pt,color=qqwuqq] (-0.4107324313036979,3.5940380314914298) -- (-0.5280845545333254,3.4780488976318384);
+\draw [shift={(0,-2.4)},line width=2pt,color=xfqqff] (90:0.66) arc (90:121.38280298966701:0.66);
+\draw[line width=2pt,color=xfqqff] (-0.18639162402013953,-1.8534065381884484) -- (-0.2396463737401794,-1.6972369776708631);
+\draw[line width=2pt,color=xfqqff] (-0.12551655480205504,-1.8363051849886998) -- (-0.16137842760264237,-1.675249523556901);
+\draw [shift={(3.2,-2.4)},line width=2pt,color=xfqqff] (116.56505117707799:0.66) arc (116.56505117707799:147.947854166745:0.66);
+\draw[line width=2pt,color=xfqqff] (2.7888422359682425,-1.994468813682097) -- (2.671368589102025,-1.8786027604484117);
+\draw[line width=2pt,color=xfqqff] (2.8356425954785234,-1.9519487397960207) -- (2.73154047990096,-1.8239340940234552);
+\draw [shift={(1.0847364971013278,1.8305270057973446)},line width=2pt,color=uququq] (180:0.77) arc (180:197.89437981413946:0.77);
+\draw [shift={(1.0847364971013278,1.8305270057973446)},line width=2pt,color=uququq] (180:0.627) arc (180:197.89437981413946:0.627);
+\draw [shift={(-3.556567288980571,1.8305270057973446)},line width=2pt,color=wqwqwq] (-49.946525647394445:0.88) arc (-49.946525647394445:-32.052145833255004:0.88);
+\draw [shift={(-3.556567288980571,1.8305270057973446)},line width=2pt,color=wqwqwq] (-49.946525647394445:0.737) arc (-49.946525647394445:-32.052145833255004:0.737);
+\draw [shift={(-1.404285763462495,6.8085715269249905)},line width=2pt,color=wqwqwq] (-113.38147447031648:0.88) arc (-113.38147447031648:-95.48709465617704:0.88);
+\draw [shift={(-1.404285763462495,6.8085715269249905)},line width=2pt,color=wqwqwq] (-113.38147447031648:0.737) arc (-113.38147447031648:-95.48709465617704:0.737);
+\draw [line width=2pt] (-3.556567288980571,1.8305270057973446)-- (-1.35838417613201,1.8305270057973448);
+\draw [line width=2pt] (-2.1274757325562903,1.8305270057973457) -- (-2.2924757325562903,1.6325270057973458);
+\draw [line width=2pt] (-2.1274757325562903,1.8305270057973457) -- (-2.2924757325562903,2.0285270057973457);
+\draw [line width=2pt] (-2.4574757325562904,1.8305270057973457) -- (-2.6224757325562904,1.6325270057973458);
+\draw [line width=2pt] (-2.4574757325562904,1.8305270057973457) -- (-2.6224757325562904,2.0285270057973457);
+\draw [line width=2pt] (-1.35838417613201,1.8305270057973448)-- (1.0847364971013278,1.8305270057973446);
+\draw [line width=2pt] (-3.2,-2.4)-- (0,-2.4);
+\draw [line width=2pt] (-1.27,-2.4) -- (-1.435,-2.598);
+\draw [line width=2pt] (-1.27,-2.4) -- (-1.435,-2.202);
+\draw [line width=2pt] (-1.6,-2.4) -- (-1.765,-2.598);
+\draw [line width=2pt] (-1.6,-2.4) -- (-1.765,-2.202);
+\draw [line width=2pt] (0,-2.4)-- (3.2,-2.4);
+\begin{scriptsize}
+\draw [fill=uququq] (0,4) circle (2pt);
+\draw[color=uququq] (0.266,4.649) node {$N$};
+\draw [fill=uququq] (0,-2.4) circle (2pt);
+\draw[color=uququq] (-0.02,-2.787) node {$M$};
+\draw [fill=uuuuuu] (-3.2,-2.4) circle (2pt);
+\draw[color=uuuuuu] (-3.518,-2.655) node {$B$};
+\draw [fill=uuuuuu] (3.2,-2.4) circle (2pt);
+\draw[color=uuuuuu] (3.544,-2.589) node {$C$};
+\draw [fill=uququq] (-3.556567288980571,1.8305270057973446) circle (2pt);
+\draw[color=uququq] (-4.046,2.075) node {$A$};
+\draw [fill=uuuuuu] (-1.404285763462495,6.8085715269249905) circle (2pt);
+\draw[color=uuuuuu] (-1.648,7.289) node {$K$};
+\draw [fill=uuuuuu] (-1.9774646335033945,0.8417946890456474) circle (2pt);
+\draw[color=uuuuuu] (-2.22,0.733) node {$H$};
+\draw [fill=uuuuuu] (1.0847364971013278,1.8305270057973446) circle (2pt);
+\draw[color=uuuuuu] (1.476,2.229) node {$P$};
+\end{scriptsize}
+\end{tikzpicture}
+\end{center}
+
+\solnum{1} Since $NB=NC$ and $ABCN$ is cyclic, we have $\angle NCM=\angle NBM\equiv\angle NBC=\angle NAC\equiv\angle NAH$. Combined with the fact that $NH\perp AC$ and $NM\perp BC$ we get $\triangle NAH\sim\triangle NCM$. Note that the above-mentioned perpendicularities also imply $NHMC$ cyclic. We now construct point $P$ on $CK$ such that $AP\parallel BC$. Then by construction we have $\angle PAC =\angle ACB\equiv\angle HCM = \angle HNM$ and using $NHMC$ cyclic we have $\angle PCA\equiv\angle NCH = \angle NMH$ and so $\triangle PAC\sim\triangle HNM$. Using this similarity, as well as $\triangle NAH\sim\triangle NCM$ we get \[ \frac{AP}{AC}=\frac{NH}{NM}=\frac{AH}{MC} \] which implies $\triangle PAH\sim\triangle ACM$. Now using the fact that $KAMC$ is cyclic by construction we have $\angle AHP = \angle AMC = 180^{\circ}-\angle AKC\equiv 180^{\circ}-\angle AKP$ which shows $AHPK$ is cyclic. We are now done using $\triangle PAH\sim\triangle ACM$ and $AHPK$ is cyclic since \(\angle CAM = \angle APH = \angle AKH\). $\hfill\blacksquare$
+
+\solnum{2} As opposed to constructing $P$, showing $H$ and $M$ are isogonal conjugates in $\triangle AKN$ also solves the problem on the spot. This can be done by noting $\angle ANH=\angle MNC$ and performing the angle chase \[\angle HAN = \angle CBN = \angle BCN = \angle MCK = \angle MAX\]where $X$ is on $AK$ beyond $A$. This shows $H$ and $M$ isogonal in $A$ and $N$ meaning they are isogonal in $K$. Thus $\angle MKC = \angle HKA$ and, since $AKCM$ cyclic, $\angle MKC = \angle MAC$ and we are done. $\hfill\blacksquare$
+
+%--------------------------------------------%
+
+\item \textit{We are given positive real numbers \(a\), \(b\), and \(c\). Show that
+\[\left(\frac{a}{a + b}\right)^{3} + \left(\frac{b}{b + c}\right)^{3} + \left(\frac{c}{c + a}\right)^{3} \geqslant \frac{3}{8}.\]}
+
+\sol Let \(r = b/a\), \(s = c/b\), and \(t = a/c\). We have \(rst = 1\). We need to prove
+\[\left(\frac{1}{1 + r}\right)^{3} + \left(\frac{1}{1 + s}\right)^{3} + \left(\frac{1}{1 + t}\right)^{3} \geqslant \frac{3}{8}.\]
+By AM-GM,
+\[\frac{1}{2}\left(\left(\frac{1}{1 + r}\right)^{3} + \left(\frac{1}{1 + r}\right)^{3} + \frac{1}{8}\right) \geqslant \frac{3}{4}\left(\frac{1}{1 + r}\right)^{2},\]
+and similarly if \(r\) is replaced by \(s\) throughout or by \(t\) throughout. Adding those three inequalities together yields
+\[\left(\frac{1}{1 + r}\right)^{3} + \left(\frac{1}{1 + s}\right)^{3} + \left(\frac{1}{1 + t}\right)^{3} + \frac{3}{16} \geqslant \frac{3}{4}\left(\left(\frac{1}{1 + r}\right)^{2} + \left(\frac{1}{1 + s}\right)^{2} + \left(\frac{1}{1 + t}\right)^{2}\right).\]
+
+\begin{lemma}
+Let \(x\) and \(y\) be non-negative real numbers. It follows that
+\[\left(\frac{1}{1 + x}\right)^{2} + \left(\frac{1}{1 + y}\right)^{2} \geqslant \frac{1}{1 + xy}.\]
+\end{lemma}
+\begin{proof}[Proof of Lemma]
+We have the following double implications.
+\[\begin{aligned}
+& & \left(\frac{1}{1 + x}\right)^{2} + \left(\frac{1}{1 + y}\right)^{2} & \geqslant \frac{1}{1 + xy}\\
+& \iff & (1 + xy)((1 + y)^{2} + (1 + x)^{2}) & \geqslant (1 + x)^{2}(1 + y)^{2}\\
+& \iff & (1 + xy)(2 + 2x + 2y + x^{2} + y^{2}) & \geqslant (1 + 2x + x^{2})(1 + 2y + y^{2})\\
+& \iff & 1 + x^{3}y + xy^{3} & \geqslant 2xy + x^{2}y^{2}\\
+& \iff & (1 - xy)^{2} + xy(x - y)^{2} & \geqslant 0.
+\end{aligned}\]
+The last statement is true.
+\end{proof}
+
+By the Lemma and the fact that \(rst = 1\), we have
+\begin{align*}
+    &\mspace{24mu} \frac{3}{4}\left(\left(\frac{1}{1 + r}\right)^{2} + \left(\frac{1}{1 + s}\right)^{2} + \left(\frac{1}{1 + t}\right)^{2} + \left(\frac{1}{1 + 1}\right)^{2}\right) \\
+    &\geqslant \frac{3}{4}\left(\frac{1}{1 + rs} + \frac{1}{1 + t}\right) = \frac{3}{4}\cdot\frac{2 + rs + t}{1 + rs + t + rst} = \frac{3}{4}.
+\end{align*}
+
+We conclude
+\begin{align*}
+& \left(\frac{1}{1 + r}\right)^{3} + \left(\frac{1}{1 + s}\right)^{3} + \left(\frac{1}{1 + t}\right)^{3}\\
+& \geqslant \frac{3}{4}\left(\left(\frac{1}{1 + r}\right)^{2} + \left(\frac{1}{1 + s}\right)^{2} + \left(\frac{1}{1 + t}\right)^{2}\right) - \frac{3}{16} \geqslant \frac{3}{4} - 2\left(\frac{3}{16}\right) = \frac{3}{8}.
+\end{align*}
+This completes the proof. $\hfill\blacksquare$
+\end{enumerate}
+\end{document}

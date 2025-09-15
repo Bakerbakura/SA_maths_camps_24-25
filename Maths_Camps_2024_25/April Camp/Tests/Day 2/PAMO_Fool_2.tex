@@ -1,0 +1,82 @@
+\documentclass[12pt]{article}
+\usepackage{mathtools,amssymb}
+\usepackage{enumitem}
+\usepackage{fullpage}
+\usepackage{fancyvrb}
+% \usepackage{hyperref}
+\usepackage{parskip}
+
+
+\begin{document}
+\thispagestyle{empty}
+
+\begin{center}
+  \textbf{\Large PAMO Stream Test 2}
+  \\ \vspace{1em}
+  \textbf{\large April Camp 2025}
+  \\ \vspace{1em}
+  \textbf{\large Time: $4\frac{1}{2}$ hours}
+\end{center}
+
+% \bigskip
+
+\begin{enumerate}[leftmargin=0pt,topsep=2\bigskipamount,itemsep=\medskipamount]
+
+\item Let $\triangle ABC$ be an acute triangle with circumcircle $\omega$. Let $D$ and $E$ be points on $AB$ and $AC$, respectively, such that $AD\cdot EC = AE\cdot DB$. Let $\ell_d$ be the line through $D$ parallel to $BC$ and let it intersect $\omega$ at $F$ on the arc $AB$ not containing $C$. Similarly, let $\ell_e$ be the line through $E$ parallel to $\ell_d$ and let it intersect $\omega$ at $G$ on the arc $AC$ not containing $B$.
+
+\vspace{0.2cm}
+Prove that $FG$ is parallel to $BC$.
+
+\item Let $x_1,x_2,\dotsc$ and $y_1,y_2,\dotsc$ be sequences of integers defined recursively by
+\begin{align*}
+    x_{n+1} &= \begin{cases*}
+        \left\lfloor \frac{x_n+y_n}{4} \right\rfloor +x_n -y_n & if $x_n$ and $y_n$ are both odd or both even \\
+        2x_n -x_n^2 +y_n +1 & if one of $x_n,y_n$ is even and the other is odd,
+    \end{cases*} \\
+    y_{n+1} &= \begin{cases*}
+        \left\lfloor \frac{x_n+y_n+2}{4} \right\rfloor +y_n -x_n & if $x_n$ and $y_n$ are both odd or both even \\
+        2y_n +x_n^2 +x_n & if one of $x_n,y_n$ is even and the other is odd,
+    \end{cases*}
+\end{align*}
+We say that the pair of sequences is \emph{special} if $y_n = 1-x_n$ for some value of $n$.
+If the initial values are $x_1 = 20^{25}$ and $y_1 = 25^{20}$, is the pair of sequences special?
+
+\item For a non-negative integer $n$ we define $\Sigma (n)$ to be the sum of the perfect cubes from $0$ to $n^3$.
+How many ordered pairs of positive integers $(a, b, c)$ are there such that 
+\[
+2025 = \Sigma (a) + \Sigma (b) + \Sigma (c)?
+\]
+
+\end{enumerate}
+
+
+\vfill
+% ASCII art
+\centering
+\tiny %size of the art
+% Insert ASCII art (in the verbatim env)
+\begin{BVerbatim}
+               ________
+          _,.-Y  |  |  Y-._
+      .-~"   ||  |  |  |   "-.
+      I" ""=="|" !""! "|"[]""|     _____
+      L__  [] |..------|:   _[----I" .-{"-.
+     I___|  ..| l______|l_ [__L]_[I_/r(=}=-P
+    [L______L_[________]______j~  '-=c_]/=-^
+     \_I_j.--.\==I|I==_/.--L_]
+       [_((==)[`-----"](==)j
+          I--I"~~"""~~"I--I
+          |[]|         |[]|
+          l__j         l__j
+          |!!|         |!!|
+          |..|         |..|
+          ([])         ([])
+          ]--[         ]--[
+          [_L]         [_L]
+         /|..|\       /|..|\
+        `=}--{='     `=}--{='
+       .-^--r-^-.   .-^--r-^-.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\end{BVerbatim}
+
+\end{document}

@@ -1,0 +1,122 @@
+\documentclass[12pt]{article}
+\usepackage{mathtools,amsfonts,amsthm}
+\usepackage{fullpage,enumitem,tikz}
+\newcommand{\sol}{\textbf{Solution.}}
+
+\begin{document}
+\begin{center} \large
+    \textbf{Stellenbosch Camp December 2024}
+    
+    \textbf{Advanced Section Test 1 Solutions}
+    
+    \textbf{Time: \(2 \frac{1}{2}\) hours}
+\end{center}
+
+\begin{enumerate}[itemsep=2\bigskipamount,topsep=3\bigskipamount]
+
+\item \textit{Find all functions \(f: \mathbb{R} \rightarrow \mathbb{R}\) for which there are real numbers \(a\) and \(b\) such that, for all \(x, y \in \mathbb{R}\), we have \(f(x) + f(y) = ax + by\).}
+
+\begin{proof}[Solution]
+Suppose that we have such a function \(f\) with corresponding real numbers \(a\) and \(b\). Write \(c = -f(0)\). For all real \(x\), we have \(f(x) + f(0) = ax + b0 = ax\), so \(f(x) = ax - f(0) = ax + c\). Therefore, for all real \(x\) and \(y\), we have \(f(x) + f(y) = ax + ay + 2c = ax + by\), so \((a - b)y = -2c\). It follows that \(a - b = -2c = 0\), so \(a = b\) and \(c = 0\). Therefore, for all \(x \in \mathbb{R}\), we have \(f(x) = ax\). For each real \(a\), that solution checks.
+\end{proof}
+
+\item \textit{Let $ABCD$ be a convex quadrilateral with $\angle BCD = 90^{\circ}$. Let $P$ be on $CD$ such that $\angle APD = \angle BPC$ and $\angle BAP = \angle ABC$. Prove that \[BC = \frac{AP + BP}{2}.\]}
+
+\begin{proof}[Solution]
+\mbox{}
+\begin{center}
+\definecolor{uuuuuu}{rgb}{0.26666666666666666,0.26666666666666666,0.26666666666666666}
+\definecolor{uququq}{rgb}{0.25098039215686274,0.25098039215686274,0.25098039215686274}
+\begin{tikzpicture}[line cap=round,line join=round,x=1cm,y=1cm]
+    \tikzstyle{every node} = [font=\large]
+    \draw [shift={(-0.5122431051538235,-1.4849863182730092)},line width=2pt,color=uququq,fill=uququq,fill opacity=0.1] (0,0) -- (-0.14463370274463377:0.6) arc (-0.14463370274463377:56.557376128256045:0.6) -- cycle;
+    \draw [shift={(-0.5122431051538235,-1.4849863182730092)},line width=2pt,color=uququq,fill=uququq,fill opacity=0.1] (0,0) -- (123.15335646625468:0.6) arc (123.15335646625468:179.85536629725536:0.6) -- cycle;
+    \draw [shift={(-0.5122431051538235,-1.4849863182730092)},line width=2pt,color=uququq,fill=uququq,fill opacity=0.1] (0,0) -- (-56.846643533745336:0.6) arc (-56.846643533745336:-0.1446337027446348:0.6) -- cycle;
+    \draw[line width=2pt,color=uququq,fill=uququq,fill opacity=0.1] (2.071146529204397,-1.0672422507698889) -- (1.6468838122530274,-1.066171267556976) -- (1.6458128290401148,-1.4904339845083454) -- (2.070075545991484,-1.4915049677212582) -- cycle; 
+    \draw [shift={(2.08,2.44)},line width=2pt,color=uququq,fill=uququq,fill opacity=0.1] (0,0) -- (-163.49563861824498:0.6) arc (-163.49563861824498:-90.14463370274464:0.6) -- cycle;
+    \draw [shift={(-2.24,1.16)},line width=2pt,color=uququq,fill=uququq,fill opacity=0.1] (0,0) -- (-56.84664353374533:0.6) arc (-56.84664353374533:16.504361381755015:0.6) -- cycle;
+    \draw [line width=2pt] (-2.24,1.16)-- (2.08,2.44);
+    \draw [line width=2pt] (-0.5122431051538235,-1.4849863182730092)-- (2.08,2.44);
+    \draw [line width=2pt] (0.656190790966049,0.5019171335390991) -- (0.8564559385314638,0.36965273670230203);
+    \draw [line width=2pt] (0.7113009563147139,0.5853609450246893) -- (0.9115661038801287,0.4530965481878923);
+    \draw [line width=2pt] (-4.7619951438783055,-1.4742585005537898)-- (-2.24,1.16);
+    \draw [line width=2pt] (-4.7619951438783055,-1.4742585005537898)-- (2.070075545991484,-1.4915049677212582);
+    \draw [shift={(-0.5122431051538235,-1.4849863182730092)},line width=2pt,color=uququq] (-0.14463370274463377:0.6) arc (-0.14463370274463377:56.557376128256045:0.6);
+    \draw[line width=2pt,color=uququq] (-0.04958638285645863,-1.2368457183844397) -- (0.08260125208564549,-1.1659484041305632);
+    \draw [shift={(-0.5122431051538235,-1.4849863182730092)},line width=2pt,color=uququq] (123.15335646625468:0.6) arc (123.15335646625468:179.85536629725536:0.6);
+    \draw[line width=2pt,color=uququq] (-0.973641156778314,-1.2345130902482857) -- (-1.1054691715281675,-1.1629493108126507);
+    \draw [shift={(-0.5122431051538235,-1.4849863182730092)},line width=2pt,color=uququq] (-56.846643533745336:0.6) arc (-56.846643533745336:-0.1446337027446348:0.6);
+    \draw[line width=2pt,color=uququq] (-0.050845053529334355,-1.7354595462977318) -- (0.08098296122051923,-1.8070233257333665);
+    \draw [shift={(2.08,2.44)},line width=2pt,color=uququq] (-163.49563861824498:0.6) arc (-163.49563861824498:-90.14463370274464:0.6);
+    \draw [shift={(2.08,2.44)},line width=2pt,color=uququq] (-163.49563861824498:0.47) arc (-163.49563861824498:-90.14463370274464:0.47);
+    \draw [shift={(-2.24,1.16)},line width=2pt,color=uququq] (-56.84664353374533:0.6) arc (-56.84664353374533:16.504361381755015:0.6);
+    \draw [shift={(-2.24,1.16)},line width=2pt,color=uququq] (-56.84664353374533:0.47) arc (-56.84664353374533:16.504361381755015:0.47);
+    \draw [line width=2pt] (-2.24,1.16)-- (-0.5122431051538235,-1.4849863182730092);
+    \draw [line width=2pt,dash pattern=on 3pt off 3pt] (-0.5122431051538235,-1.4849863182730092)-- (2.0601510919829678,-5.423009935442517);
+    \draw [line width=2pt,dash pattern=on 1pt off 1pt] (0.8470750768797248,-3.3465118153902904) -- (0.6461447253172369,-3.477763458507532);
+    \draw [line width=2pt,dash pattern=on 1pt off 1pt] (0.901763261511907,-3.4302327952079943) -- (0.700832909949419,-3.5614844383252353);
+    \draw [line width=2pt] (2.08,2.44)-- (2.070075545991484,-1.4915049677212582);
+    \draw [line width=2pt] (2.19503739066012,0.47394459634241687) -- (1.9550381553313647,0.47455043593632584);
+    \draw [line width=2pt,dash pattern=on 3pt off 3pt] (2.070075545991484,-1.4915049677212582)-- (2.0601510919829678,-5.423009935442517);
+    \draw [line width=2pt,dash pattern=on 1pt off 1pt] (2.1851129366516053,-3.4575603713788428) -- (1.9451137013228499,-3.456954531784934);
+    
+    \draw [fill=uququq] (-2.24,1.16) circle (2pt);
+    \draw[color=uququq] (-2.14,1.59) node {$A$};
+    \draw [fill=uququq] (2.08,2.44) circle (2pt);
+    \draw[color=uququq] (2.24,2.83) node {$B$};
+    \draw [fill=uququq] (2.0601510919829678,-5.423009935442517) circle (2pt);
+    \draw[color=uququq] (2.34,-5.03) node {$Q$};
+    \draw [fill=uuuuuu] (-0.5122431051538235,-1.4849863182730092) circle (2pt);
+    \draw[color=uuuuuu] (-0.52,-0.79) node {$P$};
+    \draw [fill=uuuuuu] (2.070075545991484,-1.4915049677212582) circle (2pt);
+    \draw[color=uuuuuu] (2.4,-1.19) node {$C$};
+    \draw [fill=uququq] (-4.7619951438783055,-1.4742585005537898) circle (2pt);
+    \draw[color=uququq] (-5.04,-1.09) node {$D$};
+\end{tikzpicture}
+\end{center}
+Let $AP\cap BC = \{Q\}$. Then $Q$ lies on the opposite side of $DC$ as $AB$, because $\angle APD = \angle BPC < 90^{\circ}$. Now $\angle CPQ = \angle APD = \angle BPC$ and $\angle PCQ = \angle PCB = 90^{\circ}$ thus $\triangle PBC \equiv \triangle PQC$ and so $BC = CQ$ and $PB=PQ$. Now since $\angle PAB = \angle ABC$ we have
+\[\begin{aligned}
+&&AQ&=BQ\\
+&\implies&AP+PQ&=BC+CQ\\
+&\implies&AP+PB&=BC+BC\\
+&\implies&AP+PB&=2BC\\
+&\implies&\frac{AP+PB}{2}&=BC
+\end{aligned}\]
+as required.
+\end{proof}
+
+\item \textit{The rational numbers \(r\), \(s\), and \(t\) are such that \(rs\), \(r + s\), \(r + st\), and \(s + rt\) are all nonzero and
+\[\frac{1}{r + s} = \frac{1}{r + st} + \frac{1}{s + rt}.\]
+Show that \((t - 3)(t + 1)\) is the square of some rational number.}
+
+\begin{proof}[Solution]
+We have
+\[\begin{aligned}
+&      & \frac{1}{r + s} & = \frac{1}{r + st} + \frac{1}{s + rt}\\
+& \iff & (r + st)(s + rt) & = (r + s)(s + rt + r + st)\\
+& \iff & rs + (r^{2} + s^{2})t + (rs)t^{2} & = (r + s)^{2} + (r + s)^{2}t\\
+& \iff & rst^{2} - 2rst - (r^{2} + rs + s^{2}) & = 0\\
+& \iff & t^{2} - 2t - 3 - \left(\frac{r}{s} + \frac{s}{r} - 2\right) & = 0\\
+& \iff & t^{2} - 2t - 3 & = \frac{(r - s)^{2}}{rs}.
+\end{aligned}\]
+Therefore, it is enough to show that \(rs\) is the square of some rational number. Indeed, \(r, s, t \in \mathbb{Q}\), so \(t - 1 \in \mathbb{Q}\), and by the quadratic formula applied to \(t^{2} - 2t - (r/s + s/r + 1) = 0\), we find
+\[t = 1 \pm \sqrt{2 + \frac{r}{s} + \frac{s}{r}} = 1 \pm \sqrt{\frac{(r + s)^{2}}{rs}},\]
+so \(rs\) is the square of some rational number.
+\end{proof}
+
+\item \textit{In a 40-by-50 array of control buttons, each button has two states: ON and OFF. By touching a button, its state and the states of all buttons in the same row and in the same column are switched. Prove that the array of control buttons may be altered from the all-OFF state to the all-ON state by touching buttons successively, and determine the least number of touches needed to do so.}
+
+\begin{proof}[Solution]
+Altering the state from all-OFF to all-ON requires that the state of each button is changed an odd number of times. This is achieved by touching each button once. We prove that the desired result cannot be achieved if some button is never touched. In order to turn this button ON, the total number of touches of the other buttons in its row and column must be odd. Hence either the other buttons in its row or in its column -- say, in its row -- must be touched an odd number of times altogether. In order to change the state of each of these (odd number of) buttons an odd number of times, the total number of touches of all the other buttons on the panel (i.e. outside of the selected row) must be even. But then we have an even total number of state changes for the (odd number of) other buttons in the selected column, whereas an odd number is required to alter the state of all these buttons. Hence the minimum number of touches is $40 \cdot 50 = 2000$.
+\end{proof}
+
+\item \textit{Let us say that a triple \((a, b, c)\) is \emph{special} if and only if \(a\), \(b\), and \(c\) are positive integers such that \(a \neq b \neq c \neq a\) and \(\gcd(a^{b}, b^{c}, c^{a}) = \gcd(a^{c}, c^{b}, b^{a})\). Prove that for each positive integer \(M\), there exists a special triple \((a, b, c)\) such that \(\gcd(a, b, c) > M\).}
+
+\begin{proof}[Solution]
+Let $p$ be any prime greater than 3, and let $a=p$, $b=2p$, and $c=3p$. It follows that $\gcd(a, b, c) = p$,
+\[\gcd(a^b,b^c,c^a) = \gcd(p^{2p},(2p)^{3p},(3p)^{p}) = \gcd(p^{2p},2^{3p} p^{3p},3^p p^{p}) = p^p,\]
+and
+\[\gcd(a^c, c^b, b^a) = \gcd(p^{3p},(3p)^{2p},(2p)^{p}) = \gcd(p^{3p},3^{2p} p^{2p},2^p p^{p}) = p^p. \qedhere\]
+\end{proof}
+\end{enumerate}
+\end{document}

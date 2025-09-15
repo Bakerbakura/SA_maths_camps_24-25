@@ -1,0 +1,71 @@
+\documentclass[12pt]{article}
+\usepackage{mathtools,amssymb}
+\usepackage{enumitem}
+\usepackage{fullpage}
+\usepackage{fancyvrb}
+\usepackage{parskip}
+
+
+\begin{document}
+\thispagestyle{empty}
+
+\begin{center} \bfseries
+  \Large IMO Stream Test 4
+  \\ \bigskip
+  \large April Camp 2025
+  \\ \bigskip
+  Time: $4\frac{1}{2}$ hours
+\end{center}
+
+\bigskip\bigskip
+\begin{enumerate}[leftmargin=0pt,itemsep=\bigskipamount]
+
+% A2
+\item Let $n$ be a positive integer.
+Find the minimum possible value of
+\[2^0x_0^2 + 2^1x_1^2 + \dotsb + 2^{n}x_{n}^2\]
+where $x_0,x_1,\dotsc,x_{n}$ are nonnegative integers such that $x_0 + x_1 + \cdots + x_{n} = n$.
+
+% C3
+\item Let $n$ be a positive integer.
+There are $n$ coaches and $n$ students at a maths camp sitting at a round table in some order.
+Each of the $n$ students wishes to meet with one of the coaches to argue about their mark for a combinatorics problem from an earlier test at the camp, and no two students wish to meet with the same coach.
+A student and coach can argue only if they are seated next to each other at the table.
+Every ten minutes, one pair of adjacent people swaps places.
+
+Find the minimum number of exchanges of adjacent people such that, regardless of the initial arrangement, every student can argue with the coach they wish to at some time.
+
+% G6
+\item Let $ABC$ be an acute triangle with $AB<AC$, and let $\Gamma$ be the circumcircle of $ABC$.
+Points $X$ and $Y$ lie on $\Gamma$ so that $XY$ and $BC$ intersect on the external angle bisector of $\angle BAC$.
+Suppose the tangents to $\Gamma$ at $X$ and $Y$ intersect at a point $T$ on the same side of $BC$ as $A$, and that $TX$ and $TY$ intersect $BC$ at $U$ and $V$, respectively.
+Let $J$ be the centre of the excircle of triangle $TUV$ opposite the vertex $T$.
+
+Prove that $AJ$ bisects $\angle BAC$.
+
+\end{enumerate}
+
+
+\vfill
+% ASCII art
+\centering
+\scriptsize % size of the art
+% Insert ASCII art (in the verbatim env)
+\begin{BVerbatim}
+                         .-.
+                        |/`\\.._
+     _..._,,--.         `\ /.--.\ _.-. 
+  ,/'  ..:::.. \     .._.-'/    \` .\/ 
+ /       ...:::.`\ ,/:..| |(o)  / /o)|
+|:..   |  ..:::::'|:..  ;\ `---'. `--'
+;::... |   .::::,/:..    .`--.   .:.`\_
+ |::.. ;  ..::'/:..   .--'    ;\   :::.`\
+ ;::../   ..::|::.  /'          ;.  ':'.---.
+  `--|    ..::;\:.  `\,,,____,,,/';\. (_)  |)
+     ;     ..::/:\:.`\|         ,__,/`;----'
+     `\       ;:.. \: `-..      `-._,/,_,/
+       \      ;:.   ). `\ `>     _:\
+        `\,  ;:..    \ \ _>     >'
+\end{BVerbatim}
+
+\end{document}

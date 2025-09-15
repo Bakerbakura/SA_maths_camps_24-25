@@ -1,0 +1,160 @@
+\documentclass[12pt]{article}
+\usepackage{mathtools,amssymb}
+\usepackage{graphicx,enumitem,fullpage,tikz}
+\usepackage{multicol}
+
+\title{Beginner Test 3 - Solution}
+\author{Stellenbosch Camp 2024}
+\date{Friday 13 December 2024}
+
+\begin{document} \maketitle
+
+Note that the below problems are \emph{not} arranged in order of difficulty.
+
+\begin{enumerate}[topsep=2\bigskipamount,itemsep=\bigskipamount]
+
+\item The closest time to when the 4 digits will again appear together is ${\bf 04:26}$. That is in $1$ hour $40$ minutes or in $100$ minutes.
+
+\item We have $ab = 10a + b, ba = 10b+a,$ and $ca6=100c+10a+6$. So $ab+ba=ca6$ implies that $10a+b + 10b+a=100c+10a+6$ or $11b =100c-a+6.$ So $100c-a+6$ must be divisible by $11$. Taking $c=1$, we have $11b=106-a$, which in turn means that $106-a$ must be divisible by $11.$ Taking $a=7,$ $106-7=99$ is divisible by $11$. Now $11b=106-7=99$ implies that $b=9$. Hence, $a+b+c=1+9+7=17$.
+
+\item The last digit of the number $17^{100}$ is the remainder when $17^{100}$ is divided by $10$.
+But 
+\begin{align*}
+    17 &\equiv 7 \pmod{10}, & 17^2 &\equiv 7^2\equiv 9 \pmod{10}, \\
+    17^3 &\equiv 3 \pmod{10}, & \text{and}\quad 17^4 & \equiv 1 \pmod{10}.
+\end{align*}
+
+Performing the Euclidean division of $100$ by $4$ gives  $100=4\cdot 25$.
+
+So $ 17^{100} = 17^{4\cdot 25} = (17^{4})^{25}$ and  $17^4 \equiv 1 \pmod{10}$ implies that $(17^4)^{25} \equiv 1^{25} \equiv 1 \pmod{10}$.
+Hence the remainder when $17^{100}$ is divided by $10$ (or the last digit of $17^{100}$) is $1$.
+
+\item Determine the remainder when $38^{24}+39^{77}$ is divided by $7$\\
+We have 
+\[ 38 \equiv 3 \ (mod \ 7), \; 38^2 \equiv 3^2 \equiv 2\ (mod \ 7),\; 38^3\equiv 6\ (mod \ 7), \; 38^4\equiv 4\ (mod\ 7),\; 38^5\equiv 5\ (mod \ 7).\] 
+Lastly, $38^6 \equiv 1\ (mod \ 7).$ Further $24 = 6\cdot 4$, so $38^{24} = (38^{6})^{4} \equiv 1\ (mod \ 7)$ since $38^6\equiv 1\ (mod\ 7)$.  So $1$ is the remainder when $38^{24}$ is divided by $7.$ On the other hand,
+
+\[ 39\equiv 4\ (mod\ 7),\; 39^2\equiv 2\ (mod\ 7),\; 39^3\equiv 1\ (mod \ 7)\]
+
+and $77 = 3\cdot 25 + 2$. So $39^{77}=(39^3)^{25}\cdot 39^2$, which implies that
+$39^{77}\equiv  (39^3)^{25}\cdot 39^2 \ (mod\ 7)$ or $39^{77}\equiv  39^2 \ (mod\ 7)$ or $39^{77}\equiv  2 \ (mod\ 7)$. So $2$ is the remainder when $39^{77}$ is divided by $7$. In conclusion, the remainder when $38^{24}+39^{77}$ is divided by $7$ is $1+2=3.$
+
+ \item 
+
+ \item $(x^{x^4})^4 = 64^4.$ So $(x^4)^{x^4} = (8^2)^4=8^8.$ Therefore $x^4=8$ or $x =\pm\sqrt[4]{8}.$
+ 
+ \item 
+ 
+ \item If $n^{2}-440$ is a perfect square, then $n^{2}-440=m^{2}$ for some integer $m$. We can assume that $m\geq 0$.We then have 
+\begin{equation*}
+    n^{2}-m^{2}=440.
+\end{equation*}
+Note that $440 = 8\cdot5\cdot11$. $n^{2}-m^{2}$ is the difference of two squares, so 
+we can write 
+\begin{equation*}
+    (n-m)(n+m)= n^{2}-m^{2}=8\cdot5\cdot11.
+\end{equation*}
+Since $n^{2}-m^{2}$ is even, both $n,m$ are even or odd. Then $n+m$ and $n-m$ are both even. Since $(n+m)(n-m)=8\cdot5\cdot11$, $4$ must be a factor of $n+m$ or $n-m$ and $2$ is a factor of the remaining one. The factors $5,11$ can be accounted for in four different ways.
+\begin{equation*} \{n+m,n-m\}= 
+    \begin{array}{cc}
+ &   \{4\cdot 5\cdot 11,2\}\\
+     & \{4\cdot5, 2\cdot11 \}\\
+     &\{4\cdot11, 2\cdot5\}\\
+     & \{2\cdot5\cdot11, 4\}
+\end{array}.
+\end{equation*}
+Since $m\geq0$ by assumption, $n-m$ has to be smaller than $n+m$. Solving for $n,m$ above, we find 4 integer solutions 
+\begin{equation*}
+    (n,m)= (111,109),\;(21,1),\;(27,17),\; (57,53).
+\end{equation*}
+
+\item Taking the $100$-th root on both sides gives 
+\begin{equation*}
+    \pm (n^{2})<5^{3}=125.
+\end{equation*}
+The largest perfect square smaller than $125$ is $121$. This means that $-11,11$ are solutions to the inequality. Since $11$ is the largest integer, the answer is $11$.
+
+\item Let $z=x+1$. Then $x=z-1$. We then write the function in terms of $z$.
+\begin{equation*}
+    f(z)= (z-1)^{2}+5(z-1)+3.
+\end{equation*}
+Note that $x-1=z-1-1=z-2$. So $f(x-1)=f(z-2)$ which is 
+\begin{align*}
+    f(x-1)=f(z-2)&=(z-2-1)^{2}+5(z-2-1)+3\\
+    &=(z-3)^{2}+5(z-3)+3\\
+    &=(x-2)^{2}+5(x-2)+3\\
+    &= x^{2}-4x+4+5x-10+3\\
+    &= x^{2}+x-3.
+\end{align*}
+
+\item
+
+\item 
+
+\item 
+
+ \item By drawing the circles in and drawing a grid of squares of side length 4 around the circles, we notice that the star-shaped areas between circles are comprised of 4 areas between the corner of the squares and the circles inside them. $\checkmark$ This means that each star-shaped region is $16-4\pi$ units$^2$. This means that the total area of the shaded region is $2(16-4\pi)+2(4\pi) = 32$. $\checkmark \checkmark \checkmark$\textbf{[4]} 
+    \item We shall prove this by assuming CE = 7 units and arrive at a contradiction. $\checkmark$ 
+    Let $CE = 7\checkmark$. Let $DE = a$ and $AD = BC = b$. Then $AB = a + 7$, and so
+\[
+(a + 7)^2 = AB^2 = AE^2 + BE^2 = AD^2 + DE^2 + EC^2 + BC^2, \checkmark
+\]
+\[
+= b^2 + a^2 + 7^2 + b^2.
+\]
+
+This implies:
+\[
+a^2+14a+49 = a^2 +2b^2+49 \checkmark
+\]
+\[
+\implies 7a = b^2.
+\]
+
+But then $a=7x^2$ for some $x$.\checkmark
+Then, in triangle $\triangle CBE$,
+\[
+BE^2 = 7^2 + b^2 = 7^2 + 7a = 7^2 + 7^2x^2 = 7^2(x^2+1). \checkmark
+\]
+
+But then it must be that $x^2+1 \checkmark$ is a perfect square, which is untrue for all $x>1\checkmark$. So CE cannot be 7 units long.\textbf{ [8]}
+
+\item The upper triangle is covered by $A$, two triangles with area half of $A$, and one triangle with area a quarter of $A\checkmark$.  
+The lower triangle is covered by $B$ and two triangles with area half of $B\checkmark$.  
+The upper and lower triangles have the same area, so:
+\[
+\left(1 + 2 \left(\frac{1}{2}\right) + 1 \left(\frac{1}{4}\right)\right) \times \text{Area } A = \left(1 + 2 \left(\frac{1}{2}\right)\right) \times \text{Area } B, \checkmark
+\]
+\[
+\implies \text{Area } A = \frac{8}{9} \times \text{Area } B.\checkmark
+\]
+
+\textbf{Answer:} $\frac{8}{9} \checkmark \checkmark$ \textbf{[6]}
+
+\item \[
+\text{Area of } DEBF = \text{Total Area} - \text{Unshaded Region} \checkmark
+\]
+
+\[
+= 36 - (\text{Area of } DGE + \text{Area of } AHEG + \text{Area of } EHB + \text{Area of } BF I + \text{Area of } F ICJ + \text{Area of } DF J) \checkmark \checkmark
+\]
+
+\[
+= 36 - \left(
+\frac{1}{2} \cdot 12 + 12 + 
+\frac{1}{2} \cdot 6 + 
+\frac{1}{2} \cdot 4 + 2 + 
+\frac{1}{2} \cdot 10
+\right) 
+\]
+
+\[
+= 36 - 30 = 6.
+\]
+
+\textbf{Answer:} $6 \, \text{cm}^2 \checkmark$ \textbf{[4]}
+
+
+\end{enumerate}
+
+\end{document}

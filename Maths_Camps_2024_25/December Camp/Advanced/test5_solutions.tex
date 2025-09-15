@@ -1,0 +1,304 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{fullpage,tikz}
+\usepackage{enumitem}
+% \pgfplotsset{compat=1.15}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\sol}{\textbf{\textit{Solution: }}}
+\newcommand{\solnum}[1]{\textbf{\textit{Solution #1: }}}
+
+\begin{document}
+\begin{center} \large
+\textbf{Stellenbosch Camp December 2024}
+
+\textbf{Advanced Section Test 5 Solutions}
+
+\textbf{Time: \(4\) hours}
+\end{center}
+
+\begin{enumerate}[topsep=2\bigskipamount,itemsep=\bigskipamount]
+\item \textit{I have $10^{100}+3$ Discord friends and $10^{20000}$ Discord Nitro vouchers.
+I give each of my friends
+\[\left\lfloor\frac{10^{20000}}{10^{100} + 3}\right\rfloor\] of the vouchers, and I keep the remaining vouchers to myself.
+What is the units (i.e.~rightmost) digit of the number of vouchers that each one of my friends received?}
+
+\sol
+
+Set $g = 10^{100}$.
+\begin{align*}
+\left\lfloor\frac{10^{20000}}{10^{100} + 3}\right\rfloor & = \left\lfloor\frac{g^{200}}{g + 3}\right\rfloor\\ 
+& = \left\lfloor\frac{g^{200} - 3^{200} + 3^{200}}{g + 3}\right\rfloor\\
+& = \left\lfloor g^{199} - 3g^{198} + 9g^{197} - \cdots + (-3)^{198}g + (-3)^{199} + \frac{3^{200}}{g + 3}\right\rfloor{}. 
+\end{align*}
+
+As $g$ is a multiple of $10$ the first several terms are irrelevant, and $3^{200}/(g + 3) < (9/10)^{100}$ is small and positive, so the answer is $\lfloor(-3)^{199}\rfloor \bmod 10$, which turns out to be $3$. $\hfill\blacksquare$
+
+\item \textit{Find all solutions to $a^{a+b} = b^{b-a}$ where $a$ and $b$ are positive integers.}
+
+\sol
+
+Suppose some positive integers $a$ and $b$ satisfy $a^{a+b} = b^{b-a}$. Since $a^{a+b}$ is a positive integer, so is $b^{b-a}$, so $b \geqslant a$.
+
+If $a = b$ then $b^{b-a} = 1$, so $a^{a+b} = 1$, so $a = 1$, so $(a, b) = (1, 1)$; this gives a solution.
+
+Suppose $b > a$.
+For each prime $p$, we have $p \mid a$ if and only if $p \mid b$, in which case the exponent of $p$ in the prime factorisation of $a$ is less than the exponent of $p$ in the prime factorisation of $b$ (since $a+b > b-a$).
+Therefore, $a \mid b$, so $b = ka$ for some positive integer $k$.
+Substituting this into the given equation yields $a^{(k + 1)a} = k^{(k - 1)a}a^{(k - 1)a}$, so $a^{2} = k^{k-1}$.
+We now divide into cases depending on whether $k$ is odd or even.
+\begin{itemize}
+\item If $k$ is odd, then $a = k^{(k-1)/2}$, so $(a, b) = (k^{(k - 1)/2}, k^{(k + 1)/2})$.
+This gives a solution for every odd positive integer $k$, since it yields
+$$a^{a + b} = (k^{(k - 1)/2})^{k^{(k - 1)/2}(k + 1)} = (k^{(k + 1)/2})^{k^{(k - 1)/2}(k - 1)} = b^{b - a}.$$
+\item If $k$ is even, then the fact that $k^{k-1}$ is a square yields that $k$ is a square, so $k = t^{2}$ for some even positive integer $t$, and we obtain $a^{2} = t^{2(t^{2} - 1)}$, so $a = t^{t^{2} - 1}$, so $(a, b) = (t^{t^{2} - 1}, t^{t^{2} + 1})$.
+This gives a solution for every even positive integer $t$, since it yields
+$$a^{a + b} = (t^{t^{2} - 1})^{t^{t^{2} - 1}(t^{2} + 1)} = (t^{t^{2} + 1})^{t^{t^{2} - 1}(t^{2} - 1)} = b^{b - a}.$$
+\end{itemize}
+Therefore, the solutions are: $(a, b) = (k^{(k - 1)/2}, k^{(k + 1)/2})$ for $k$ any odd positive integer, and $(a, b) = (t^{t^{2} - 1}, t^{t^{2} + 1})$ for $t$ any even positive integer. $\hfill\blacksquare$
+
+\item \textit{There are 47 students in a classroom with 47 seats, all arranged in one row. An adjustment is made to student seats in the new school term. For a student with the original seat $i$, if their new seat is $m$, we say that the student has moved a distance of $|m-i|$.
+Let $S$ denote the sum of all the movement distances of the students. Determine the greatest possible value of $S$.}
+
+\sol
+
+Let $p_i$ and $s_i$ mean pupil $i$ and seat $i$ respectively for each $i\in\{1,2,\dots,47\}$.
+Let $p_i\mapsto s_i$ mean that $p_i$ goes to seat $s_i$.
+
+Assume that $S$ is maximal.
+I shall show by a series of steps that the switching $p_i\mapsto s_{48-i}$ is also maximal because each step does not decrease $S$.
+
+Suppose $p_1 \not\mapsto s_{47}$.
+There exists another student who goes to $s_{47}$, and $p_1$ goes to another seat, so $p_1 \mapsto s_{i}$ and $p_{j} \mapsto s_{47}$ with $1 \leqslant i < 47$ and $1 < j \leqslant 47$.
+
+Therefore in $S$ there will be the expression
+\begin{align*}
+    |i-1| + |47-j| & = i-1+47-j && \text{(because } i \geqslant 1 \text{ and } 47 \geqslant j)\\
+    & = 47-1 + i-j\\
+    & \leqslant |47-1| + |i-j|
+\end{align*}
+which would be the replacement expression if $p_1 \mapsto s_{47}$ and $p_j \mapsto s_i$. So, as required, $S$ does not decrease.
+
+Similarly there is a way to make $p_{47} \mapsto s_{1}$ without decreasing $S$.
+Do these switches.
+
+Now $p_1 \mapsto s_{47}$ and $p_{47} \mapsto s_{1}$, hence no one else goes to or from those seats, hence we can remove them without changing any distances.
+By induction we can repeat this until for all $i\in\{1,2,\dots,47\}$, $p_i \mapsto s_{48-i}$.
+
+Therefore, the maximum value of $S$ is
+$$S = \sum_{i=1}^{47} |(48-i)-i| = \sum_{i=1}^{47} |48-2i| = 0 + 2(46+44+\cdots+2) = 2\cdot 2\cdot \frac{23\cdot 24}{2} = 1104.$$
+
+Post-solution note: In this solution we have $p_{23}\mapsto s_{25}$, $p_{24}\mapsto s_{24}$ and $p_{25}\mapsto s_{23}$.
+If we prefer that no student keeps their seat, then we can replace this with $p_{23}\mapsto s_{24}$, $p_{24}\mapsto s_{25}$, and $p_{25}\mapsto s_{23}$.
+This changes the expression $|25-23|+|24-24|+|23-25|$ to $|24-23|+|25-24|+|23-25|$, which keeps $S$ unchanged.
+$\hfill\blacksquare$
+
+\item \textit{Let $ABCD$ be a square inscribed in circle $\Omega$, and let $P$ be a point on the minor arc $AB$ of $\Omega$.
+The lines $PC$, $PD$ meet the diagonals $BD$, $AC$ at points $E, F$ respectively.
+The lines $AE, BF$ meet the lines $PD, PC$ at points $S, T$ respectively.
+The points $K, L$ are the projections of $S, T$ respectively to $AB$, and $Q$ is the common point of lines $KT$ and $LS$.
+Prove that the line $PQ$ bisects the segment $OM$, where $M$ is the midpoint of side $CD$ and $O$ is the centre of $\Omega$.}
+
+\begin{center}
+\definecolor{uuuuuu}{rgb}{0.26666666666666666,0.26666666666666666,0.26666666666666666}
+\definecolor{uququq}{rgb}{0.25098039215686274,0.25098039215686274,0.25098039215686274}
+\begin{tikzpicture}[scale = 1.5,line cap=round,line join=round,x=1cm,y=1cm]
+\tikzstyle{every node} = [font=\normalsize]
+\clip(-5.125028743686985,-1.289934623730398) rectangle (10.609333703840056,7.551794715565161);
+\draw [line width=2pt] (0,3) circle (4.242640687119285cm);
+\draw [line width=2pt] (-3,0)-- (3,6);
+\draw [line width=2pt] (3,0)-- (-3,6);
+\draw [line width=2pt] (1.6370656973601836,-0.9140791896085365)-- (3,6);
+\draw [line width=2pt] (1.6370656973601836,-0.9140791896085365)-- (-3,6);
+\draw [line width=2pt] (-3,0)-- (2.0120100899319002,0.9879899100680996);
+\draw [line width=2pt] (3,0)-- (-0.5913734563620099,2.4086265436379892);
+\draw [line width=2pt] (0.5541429843865447,0)-- (1.955360198440853,0.7006086070271539);
+\draw [line width=2pt] (0.5541429843865449,0.7006086070271541)-- (1.9553601984408533,0);
+\draw [line width=2pt] (0.5541429843865449,0.7006086070271541)-- (0.5541429843865447,0);
+\draw [line width=2pt] (1.955360198440853,0.7006086070271539)-- (1.9553601984408533,0);
+\draw [line width=2pt] (0,6)-- (0,3);
+\draw [line width=2pt] (0.5541429843865449,0.7006086070271541)-- (1.955360198440853,0.7006086070271539);
+\draw [line width=2pt,dash pattern=on 3pt off 3pt] (1.254751591413699,0) circle (0.9908101939731235cm);
+\draw [line width=2pt] (1.6370656973601836,-0.9140791896085365)-- (-3,0);
+\draw [line width=2pt] (0,3)-- (1.6370656973601836,-0.9140791896085365);
+\draw [line width=2pt] (0,6)-- (1.6370656973601836,-0.9140791896085365);
+\draw [line width=2pt,dash pattern=on 3pt off 3pt,domain=-5.125028743686985:8.609333703840056] plot(\x,{(--7.366795638120827-5.414079189608536*\x)/1.637065697360183});
+\draw [line width=2pt] (-3,6)-- (-3,0);
+\draw [line width=2pt] (-3,0)-- (3,0);
+\draw [line width=2pt] (3,6)-- (3,0);
+\draw [line width=2pt] (3,6)-- (-3,6);
+\begin{scriptsize}
+\draw [fill=uququq] (-3,0) circle (2pt);
+\draw[color=uququq] (-2.89214159730989,0.27589504181077196) node {$A$};
+\draw [fill=uququq] (3,0) circle (2pt);
+\draw[color=uququq] (3.1183973879064424,0.27589504181077196) node {$B$};
+\draw [fill=uuuuuu] (3,6) circle (2.5pt);
+\draw[color=uuuuuu] (3.1183973879064424,6.30047734241312) node {$C$};
+\draw [fill=uuuuuu] (-3,6) circle (2.5pt);
+\draw[color=uuuuuu] (-2.89214159730989,6.30047734241312) node {$D$};
+\draw[color=black] (-1.8529362587444493,6.497083757817393) node {$\Omega$};
+\draw [fill=uququq] (1.6370656973601836,-0.9140791896085365) circle (2pt);
+\draw[color=uququq] (1.7561957954625544,-0.6369204582804929) node {$P$};
+\draw [fill=uuuuuu] (2.0120100899319002,0.9879899100680996) circle (2pt);
+\draw[color=uuuuuu] (2.12132199549906,1.258927118832134) node {$E$};
+\draw [fill=uuuuuu] (-0.5913734563620099,2.4086265436379892) circle (2pt);
+\draw[color=uuuuuu] (-0.4766913509145413,2.6773019728201) node {$F$};
+\draw [fill=uuuuuu] (0.5541429843865449,0.7006086070271541) circle (2pt);
+\draw[color=uuuuuu] (0.6608171953530356,0.9780608111117449) node {$S$};
+\draw [fill=uuuuuu] (1.955360198440853,0.7006086070271539) circle (2pt);
+\draw[color=uuuuuu] (2.0651487339549823,0.9780608111117449) node {$T$};
+\draw [fill=uuuuuu] (0.5541429843865447,0) circle (2pt);
+\draw[color=uuuuuu] (0.6608171953530356,0.27589504181077196) node {$K$};
+\draw [fill=uuuuuu] (1.9553601984408533,0) circle (2pt);
+\draw[color=uuuuuu] (2.0651487339549823,0.27589504181077196) node {$L$};
+\draw [fill=uuuuuu] (1.2547515914136993,0.35030430351357705) circle (2pt);
+\draw[color=uuuuuu] (1.3629829646540093,0.6269779264612585) node {$Q$};
+\draw [fill=uuuuuu] (0,6) circle (2pt);
+\draw[color=uuuuuu] (0.11312789529827638,6.272390711641081) node {$M$};
+\draw [fill=uuuuuu] (0,3) circle (2pt);
+\draw[color=uuuuuu] (0.11312789529827638,3.267121219032917) node {$O$};
+\draw [fill=uuuuuu] (0,4.5) circle (2pt);
+\draw[color=uuuuuu] (0.16930115684235425,4.769755965336999) node {$Q'$};
+\draw [fill=uuuuuu] (1.637065697360184,0.9140791896085361) circle (2pt);
+\draw[color=uuuuuu] (1.7561957954625544,1.1887105419020367) node {$X$};
+\draw [fill=uuuuuu] (1.254751591413699,0) circle (2pt);
+\draw[color=uuuuuu] (1.419156226198087,0.27589504181077196) node {$O'$};
+\draw [fill=uuuuuu] (1.2547515914136982,0.7006086070271539) circle (2pt);
+\draw[color=uuuuuu] (1.419156226198087,0.9780608111117449) node {$M'$};
+\end{scriptsize}
+\end{tikzpicture}
+\end{center}
+
+\solnum{1}
+
+Let $X$ be the intersection of $AE$ and $BF$ and let $Q'$ be the midpoint of $OM$.
+Then since $E$ is on the perpendicular bisector of $AC$ we get $EA=EC$ (similarly $FD=FB$) and thus
+\[\angle XAB = 45^{\circ}-\angle EAC=45^{\circ}-\angle ECA=\angle PCB=\angle PAB\]
+where the last step follows from $ABCDP$ cyclic.
+Similarly, $\angle XBA=\angle PBA$ so $X$ is the reflection of $P$ in $AB$.
+Now the calculation
+\begin{align*}
+    \angle SXT + \angle SPT &= \angle AXB + \angle DPC\\
+    &= \angle APB + \angle DAC\\
+    &= (180^{\circ}-\angle ADB) + 45^{\circ}\\
+    &= (180^{\circ}-45^{\circ}) + 45^{\circ}\\
+    &= 180^{\circ}
+\end{align*}
+shows $SXTP$ is cyclic. Another angle chase gives $\angle XAP = 2\angle BAP = 2\angle BDP=\angle XFP$ (since $\triangle FDB$ is isosceles) and so $FXPA$ lie on a circle.
+But $AX=AP$, implying the center of $(FXPA)$ lies on $AB$.
+Similarly $BEXP$ are cyclic and the center of $(BEXP)$ lies on $AB$.
+But this makes $(BEXP)$, $(FXPA)$, $(SXTP)$ coaxial circles (with radical axis $XP$) and thus the center of $(SXTP)$ (call it $O'$) lies on $AB$ as well.
+From our set of cyclic quads we also have \[\angle XST = \angle XPT = \angle XBE\equiv\angle FBD = \angle FDB\equiv\angle PDB = \angle PAB = \angle XAB \] and thus $ST\parallel AB\parallel CD$.
+Now Let $M'$ be the midpoint of $ST$.
+Then $Q$ is the midpoint of $O'M'$.
+Consider the homothety sending $\triangle PST$ to $\triangle PDC$.
+Clearly $O'$ gets sent to $O$ and $M'$ gets sent to $M$.
+Thus $Q$ gets sent to $Q'$, the midpoint of $OM$.
+$\hfill\blacksquare$
+
+\solnum{2}
+
+Note that $ST \parallel DC$ comes from affine Pappus on $DESTFC$.
+Let $K',L'$ be the midpoints of $AD,BC$ respectively and let $P'$ be the foot from $P$ to $\overline{AB}$.
+Then
+\begin{align*}
+    (A,D;\overline{PK}\cap\overline{AD},P_{\infty}) &\overset{P}{=} (A,\overline{PD}\cap\overline{AB};K,P')\\
+    &= (D,\overline{PD}\cap\overline{AB};S,P)\\
+    &\overset{A}{=} (\overline{AD}\cap\overline{PC},\overline{PC}\cap\overline{AB};E,P)\\
+    &\overset{D}{=} (A,\overline{PC}\cap\overline{AB};B,\overline{PD}\cap\overline{AB})\\
+    &\overset{P}{=} (A,C;B,D)\\
+    &= -1\\
+    &= (A,D;K',P_{\infty})
+\end{align*}
+so $P$, $K$, and $K'$ are collinear.
+By symmetry $P$, $L$, and $L'$ are collinear.
+A homothety at $P$ takes $STLK$ to $DCL'K'$, and that homothety takes $Q$ to the midpoint of $OM$, as desired. $\hfill\blacksquare$
+
+\item \textit{Find all polynomials of the form
+\[P(x) = x^{n} + \sum_{i = 0}^{n-1}a_{i}x^{i} = (x-r_1)(x-r_2)\dotsm(x-r_n) \]
+where $n \geqslant 1$, the numbers $r_{1}, r_{2}, \ldots, r_{n}$ are real numbers, and each of $a_{n - 1}, a_{n - 2}, \ldots, a_{0}$ is in the set $\{-1, 1\}$.}
+
+\sol
+
+Suppose we have such a polynomial.
+By Viete's formulas,
+\begin{align*}
+    r_{1} + \cdots + r_{n} &= -a_{n - 1},\\
+    \sum_{i < j} r_{i}r_{j} &= a_{n - 2}, \quad\text{and}\\
+    r_{1}r_{2}\cdots{}r_{n} &= (-1)^{n}a_{0}.
+\end{align*}
+We obtain
+\[\sum_{i}r_{i}^{2} = \left(\sum_{i}r_{i}\right)^{2} - 2\left(\sum_{i < j} r_{i}r_{j}\right) = a_{n - 1}^{2} - 2a_{n - 2}.\]
+Since \(a_{n - 1}, a_{n - 2} \in \{1, -1\}\) and \(\sum_{i}r_{i}^{2} \geqslant 0\), we have \(\sum_{i}r_{i}^{2} = 3\).
+By AM-GM,
+\[3 = r_{1}^{2} + \cdots + r_{n}^{2} \geqslant n(r_{1}^{2}r_{2}^{2}\dotsm r_{n}^{2})^{1/n} = n,\]
+so \(n \leqslant 3\).
+
+The possible linear polynomials \(P(x)\) are \(x + 1\) and \(x - 1\).
+
+For \(n = 2\), by the quadratic formula both roots of \(P(x) = x^{2} + a_{1}x + a_{0}\) are real if and only if \(a_{1}^{2} - 4a_{0} \geqslant 0\), which happens if and only if \(a_{0} = -1\).
+The possible quadratic polynomials \(P(x)\) are \(x^{2} \pm x - 1\).
+
+For \(n = 3\), we must have equality in the AM-GM above, so \(r_{1}^{2} = r_{2}^{2} = r_{3}^{2} = 1\), so \(|r_{1}| = |r_{2}| = |r_{3}| = 1\). Now \((x + 1)^{3} = x^{3} + 3x^{2} + 3x + 1\) and \((x - 1)^{3} = x^{3} - 3x^{2} + 3x - 1\).
+The possible cubic polynomials \(P(x)\) are \(x^{3} + x^{2} - x - 1 = (x + 1)^{2}(x - 1)\) and \(x^{3} - x^{2} - x + 1 = (x + 1)(x - 1)^{2}\).
+
+Therefore, the complete list of possible polynomials \(P(x)\) is:
+\[x + 1, x - 1, x^{2} + x - 1, x^{2} - x - 1, x^{3} + x^{2} - x - 1, x^{3} - x^{2} - x + 1.\]
+We are done. $\hfill\blacksquare$
+
+\item \textit{Let \(a\), \(b\), and \(c\) be integers such that \((a, b, c) \neq (0, 0, 0)\) and \((|a|, |b|, |c|) \neq (1, 1, 1)\).
+Prove that
+\[\gcd(a - bc, b - ac, c - ab) \mid \gcd(a, b, c)\gcd(a^{2} - 1, b^{2} - 1, c^{2} - 1).\]}
+
+\sol
+
+\newcommand{\gcdabc}{\gcd(a,b,c)}
+\newcommand{\gcdabMinc}{\gcd(a-bc,b-ac,c-ab)}
+
+For positive integers $x$ and primes $p$, write $v_p(x)$ for the exponent of $p$ in the prime factorisation of $x$.
+
+Note that $\gcd(a,b,c) \mid a - bc$, $\gcd(a,b,c) \mid b - ac$, and $\gcd(a,b,c) \mid c - ab$.
+Therefore,
+$$\gcd(a, b, c) \mid \gcd(a - bc, b - ac, c - ab).$$
+
+Let $\gcd(a - bc, b - ac, c - ab) = \gcd(a, b, c)t$.
+
+\begin{lemma}
+    If $p \mid a$, then $p \nmid t$.
+\end{lemma}
+\begin{proof}[Proof of Lemma]
+Assume for a contradiction that $p \mid a$ and $p \mid t$. We have
+\[a \equiv 0 \pmod{p} \quad\text{and}\quad p \mid \gcdabMinc.\]
+Therefore,
+\[0 \equiv ab \equiv c \pmod{p} \quad\text{and}\quad 0 \equiv ac \equiv b \pmod{p},\]
+so $p \mid \gcdabc$.
+Without loss of generality, for the proof of the Lemma let
+\[ v_p(\gcdabc) = v_p(a) \geqslant 1. \]
+We obtain $v_p(a) \leqslant v_p(b)$ and $v_p(a) \leqslant v_p(c)$, so $v_p(a) < 2v_p(a) \leqslant v_p(cb)$, so
+$$v_p(\gcdabMinc) \leqslant v_p(bc-a) = v_p(a) = v_p(\gcdabc).$$
+But \(\gcdabc \mid \gcdabMinc\), so
+\[v_p(\gcdabMinc) = v_p(\gcdabc),\]
+so $v_p(t) = 0$, which yields a contradiction.
+This completes the proof of the Lemma.
+\end{proof}
+
+Suppose $p^{r} \mid t$ where $1 \leqslant r = v_p(t)$.
+By the Lemma, $p \nmid a$.
+Now
+$$p^r \mid t \mid \gcdabMinc,$$
+so
+$$ab\equiv c \pmod{p^r} \quad\text{and}\quad bc\equiv a \pmod{p^r}.$$
+Substituting the first into the second gives
+$$b^2 a\equiv a \pmod{p^r}.$$
+But $p \nmid a$, so $p^r \mid b^2-1$. Similarly, $p^r \mid a^2-1$ and $p^r \mid c^2-1$, so
+$$p^r \mid \gcd(a^2-1,b^2-1,c^2-1).$$
+
+We can repeat this with all prime-power divisors of $t$. We obtain
+$$t \mid \gcd(a^2-1,b^2-1,c^2-1),$$
+so
+$$\gcd(a-bc,b-ac,c-ab) \mid \gcd(a,b,c)\gcd(a^2-1,b^2-1,c^2-1),$$
+and we are done. $\hfill\blacksquare$
+\end{enumerate}
+
+\end{document}

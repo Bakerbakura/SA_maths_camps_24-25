@@ -1,0 +1,64 @@
+\documentclass[12pt]{article}
+\usepackage{mathtools,amssymb}
+\usepackage{fullpage,parskip}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{vwcol}
+\usepackage{qrcode}
+\qrset{link}
+
+\usepackage{fontspec}
+\newfontfamily{\lcd}{AlarmClock}[Extension=.ttf]
+
+\pagestyle{empty}
+
+\begin{document}
+\begin{center} \bfseries \large
+    August Monthly Problem Set
+
+    Due date: 13 September 2025
+\end{center}
+
+\bigskip
+\begin{vwcol}[widths={0.8,0.2},rule=0pt]
+    Submit your monthly problem sets at this link, or scan the QR code on the right: \url{https://forms.gle/pZH93Fq95UuABT277}.
+    You can ask the coaches from the December Stellenbosch Camp for hints, but do not ask other people for help or look for help online.
+    
+    \qrcode{https://forms.gle/pZH93Fq95UuABT277}
+\end{vwcol}
+\vspace{-2\baselineskip}
+
+\begin{enumerate}[topsep=\bigskipamount,itemsep=\bigskipamount,leftmargin=0pt]
+
+\item % C, LB-2019-2
+Marie has a digital 24-hour-format clock, which for instance shows quarter past 5 in the morning as {\large \lcd 05:15}, 20 minutes to four in the afternoon as {\large \lcd 15:40}, and midnight as {\large \lcd 00:00}.
+\begin{enumerate}
+  \item She has a mirror on the wall, and notices that when looking at the clock in the mirror the clock shows a valid time.
+  How many possibilities are there for the current time (only looking at hours and minutes)?
+  \item How many possibilities are there for the current time if in addition, the time on the clock in the mirror shows the same time as shown when looking straight at the clock?
+\end{enumerate}
+
+\item % A, LB-2018-1
+Find all functions $f : \mathbb{Z} \to \mathbb{Z}$ such that $f(x + y) - f(x - y) = xy$ for all $x, y \in \mathbb{Z}$.
+
+\item % G, DB-2016-3
+Let $ABCD$ be a cyclic quadrilateral and let its diagonals intersect in $P$.
+Through $P$, draw a line parallel to $BC$ to intersect the circumcircle of triangle $ABP$ in $X$.
+Prove that $XB$ is tangent to the circumcircle  of $ABCD$. 
+
+\item % A, JM-2016-4
+Consider the function $f:\mathbb{R}_{>0} \to \mathbb{R}_{>0}$ with $f(x) = x^a + x^b +x^c$, where $a, b$, and $c$ are integers with $a+b+c = 2026$.
+Determine the smallest possible value of $f(2)\cdot f(1/2)$.
+
+\item % G, BJ-2018-3
+Let $ABC$ be an acute triangle.
+Let $AD$ be the altitude on $BC$, and let $H$ be any interior point on $AD$.
+Lines $BH$ and $CH$, when extended, intersect $AC$ and $AB$ at $E$ and $F$, respectively.
+Prove that $\angle EDH = \angle FDH$. 
+
+\item % N, BJ-2018-2
+Show that every positive integral power of $\sqrt2 - 1$ is of the form $\sqrt{m}-\sqrt{m-1}$ for some positive integer $m$.
+
+\end{enumerate}
+
+\end{document}

@@ -1,0 +1,72 @@
+\documentclass[12pt]{article}
+\usepackage{mathtools,amssymb}
+\usepackage{enumitem}
+\usepackage{fullpage}
+\usepackage{fancyvrb}
+\usepackage{parskip}
+
+
+\begin{document}
+\thispagestyle{empty}
+
+\begin{center}
+  \bfseries
+  \Large IMO Stream Test 5
+  \\ \bigskip
+  \large April Camp 2025
+  \\ \bigskip
+  Time: $4\frac{1}{2}$ hours
+\end{center}
+
+\bigskip\bigskip
+\begin{enumerate}[leftmargin=0pt,itemsep=\bigskipamount]
+
+% N2
+\item Determine all finite, nonempty sets $\mathcal{S}$ of positive integers such that for every $a,b\in\mathcal{S}$ there exists $c\in\mathcal{S}$ with $a \mid b+ 2c$.
+
+% A4
+\item Let $\mathbb{Z}_{>0}$ be the set of all positive integers.
+Determine all subsets $\mathcal{S}$ of $\{2^0, 2^1, 2^2, \dotsc\}$ for which there exist a function $f : \mathbb{Z}_{>0} \to \mathbb{Z}_{>0}$ such that
+\[\mathcal{S} = \{f(a+b)-f(a)-f(b) \mid a,b\in\mathbb{Z}_{>0}\}.\]
+
+% G7
+\item 
+Let $ABC$ be a triangle with incentre $I$ such that $AB<AC<BC$.
+The second intersections of $AI, BI$, and $CI$ with the circumcircle of triangle $ABC$ are $M_A, M_B$, and $M_C$, respectively.
+Lines $AI$ and $BC$ intersect at $D$ and lines $BM_C$ and $CM_B$ intersect at $X$.
+Suppose the circumcircles of triangles $XM_BM_C$ and $XBC$ intersect again at $S\neq X$.
+Lines $BX$ and $CX$ intersect the circumcircle of triangle $SXM_A$ again at $P\neq X$ and $Q\neq X$, respectively.
+
+Prove that the circumcentre of triangle $SID$ lies on $PQ$.
+
+\end{enumerate}
+
+
+\vfill
+% ASCII art
+\centering
+\scriptsize % size of the art
+% Insert ASCII art (in the verbatim env)
+\begin{BVerbatim}
+                       ---                                     
+                    -        --                             
+                --( /     \ )XXXXXXXXXXXXX                   
+            --XXX(   O   O  )XXXXXXXXXXXXXXX-              
+           /XXX(       U     )        XXXXXXX\               
+         /XXXXX(              )--   XXXXXXXXXXX\             
+        /XXXXX/ (      O     )   XXXXXX   \XXXXX\
+        XXXXX/   /            XXXXXX   \   \XXXXX----        
+        XXXXXX  /          XXXXXX         \  ----  -         
+---     XXX  /          XXXXXX      \           ---        
+  --  --  /      /\  XXXXXX            /     ---=         
+    -        /    XXXXXX              '--- XXXXXX         
+      --\/XXX\ XXXXXX                      /XXXXX         
+        \XXXXXXXXX                        /XXXXX/
+         \XXXXXX                         /XXXXX/         
+           \XXXXX--  /                -- XXXX/       
+            --XXXXXXX---------------  XXXXX--         
+               \XXXXXXXXXXXXXXXXXXXXXXXX-            
+                 --XXXXXXXXXXXXXXXXXX-
+\end{BVerbatim}
+
+\end{document}
